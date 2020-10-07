@@ -12,15 +12,49 @@
   </properties>
   <name>extra-bit</name>
   <description>The bit is a basic unit of information in information theory, computing.</description>
+  <url>https://github.com/javaf/extra-bit</url>
+  <licenses>
+    <license>
+      <name>MIT License</name>
+      <url>https://opensource.org/licenses/MIT</url>
+    </license>
+  </licenses>
   <developers>
     <developer>
       <id>wolfram77</id>
       <name>Subhajit Sahu</name>
       <email>wolfram77@gmail.com</email>
+      <url>https://github.com/wolfram77</url>
     </developer>
   </developers>
+  <scm>
+    <connection>scm:git:git@github.com:javaf/extra-bit.git</connection>
+    <developerConnection>scm:git:git@github.com:javaf/extra-bit.git</developerConnection>
+    <url>git@github.com:javaf/extra-bit.git</url>
+  </scm>
+  <distributionManagement>
+    <snapshotRepository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+    </snapshotRepository>
+    <repository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+    </repository>
+  </distributionManagement>
   <build>
     <plugins>
+      <plugin>
+        <groupId>org.sonatype.plugins</groupId>
+        <artifactId>nexus-staging-maven-plugin</artifactId>
+        <version>1.6.7</version>
+        <extensions>true</extensions>
+        <configuration>
+          <serverId>ossrh</serverId>
+          <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+          <autoReleaseAfterClose>true</autoReleaseAfterClose>
+        </configuration>
+      </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-source-plugin</artifactId>
@@ -29,7 +63,7 @@
           <execution>
             <id>attach-sources</id>
             <goals>
-              <goal>jar</goal>
+              <goal>jar-no-fork</goal>
             </goals>
           </execution>
         </executions>
@@ -43,6 +77,20 @@
             <id>attach-javadoc</id>
             <goals>
               <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-gpg-plugin</artifactId>
+        <version>1.5</version>
+        <executions>
+          <execution>
+            <id>sign-artifacts</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>sign</goal>
             </goals>
           </execution>
         </executions>
