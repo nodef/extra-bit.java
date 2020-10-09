@@ -33,10 +33,11 @@ public final class Bit {
    * @param x a long
    * @return count
    */
-  public static long count(long x) {
+  public static int count(long x) {
     x = x - ((x>>>1) & 0x5555555555555555L);
     x = (x & 0x3333333333333333L) + ((x>>>2) & 0x3333333333333333L);
-    return ((x + (x>>>4) & 0x0F0F0F0F0F0F0F0FL) * 0x0101010101010101L)>>>56;
+    x = ((x + (x>>>4) & 0x0F0F0F0F0F0F0F0FL) * 0x0101010101010101L)>>>56;
+    return (int) x;
   }
 
 
