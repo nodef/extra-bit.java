@@ -283,17 +283,17 @@ public class BitTest {
   public void testReverse_long() {
     System.out.println("reverse(x)");
     long a;
-    a = Bit.reverse(0xFFFF0000L);
-    assertEquals(0x0000FFFFL, a);
-    // 65535 (0x0000FFFF)
+    a = Bit.reverse(0xFFFFFFFF00000000L);
+    assertEquals(0x00000000FFFFFFFFL, a);
+    // 0x00000000FFFFFFFF
 
-    a = Bit.reverse(0x00AABBCCL);
-    assertEquals(0x33DD5500L, a);
-    // 870143232 (0x33DD5500)
+    a = Bit.reverse(0x0000AAAABBBBCCCCL);
+    assertEquals(0x3333DDDD55550000L, a);
+    // 0x3333DDDD55550000
 
-    a = Bit.reverse(0x1234L);
-    assertEquals(0x2C480000L, a);
-    // 742916096 (0x2C480000)
+    a = Bit.reverse(0x11223344L);
+    assertEquals(0x22CC448800000000L, a);
+    // 0x22CC448800000000
   }
 
   
@@ -314,13 +314,13 @@ public class BitTest {
   public void testRotate_long() {
     System.out.println("rotate(x, n)");
     long a;
-    a = Bit.rotate(0x11112222L, 4);
-    assertEquals(0x11122221L, a);
-    // 286401057 (0x11122221)
+    a = Bit.rotate(0x1111222233334444L, 4);
+    assertEquals(0x1112222333344441L, a);
+    // 0x1112222333344441
 
-    a = Bit.rotate(0x11112222L, -4);
-    assertEquals(0x21111222L, a);
-    // 554766882 (0x21111222)
+    a = Bit.rotate(0x1111222233334444L, -4);
+    assertEquals(0x4111122223333444L, a);
+    // 0x4111122223333444
   }
 
   

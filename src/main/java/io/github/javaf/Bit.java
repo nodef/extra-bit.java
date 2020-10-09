@@ -295,8 +295,8 @@ public final class Bit {
    * @return bit index
    */
   public static int scanReverse(long x) {
-    int a = scanReverse((int)(x>>>32));
-    int b = scanReverse((int)(x & 0xFFFFFFFFL));
+    int a = scanReverse((int)(x & 0xFFFFFFFFL));
+    int b = scanReverse((int)(x>>>32));
     return a==32? b+32 : a;
   }
   
