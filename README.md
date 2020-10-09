@@ -43,6 +43,12 @@ Bit.signExtend(15, 4);
 
 <br>
 
+### references
+
+- [Publishing javadoc to github using maven :: justme](https://blog.progs.be/517/publishing-javadoc-to-github-using-maven)
+- [Git error: “Host Key Verification Failed” when connecting to remote repository](https://stackoverflow.com/questions/13363553/git-error-host-key-verification-failed-when-connecting-to-remote-repository)
+- [Increment versions with the Maven Build Helper and the Versions Plugin :: Dennis Schulte](https://blog.codecentric.de/en/2015/04/increment-versions-maven-build-helper-versions-plugin/)
+
 [![javaf](https://merferry.glitch.me/card/extra-bit.svg)](https://javaf.github.io)
 
 [bit]: https://en.wikipedia.org/wiki/Bit
