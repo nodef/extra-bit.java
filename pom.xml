@@ -5,20 +5,26 @@
   <artifactId>extra-bit</artifactId>
   <version>0.0.0</version>
   <packaging>jar</packaging>
+  
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>15</maven.compiler.source>
     <maven.compiler.target>15</maven.compiler.target>
   </properties>
+  
   <name>extra-bit</name>
-  <description>The bit is a basic unit of information in information theory, computing.</description>
+  <description>
+    The bit is a basic unit of information in information theory, computing.
+  </description>
   <url>https://github.com/javaf/extra-bit</url>
+  
   <licenses>
     <license>
       <name>MIT License</name>
       <url>https://opensource.org/licenses/MIT</url>
     </license>
   </licenses>
+  
   <developers>
     <developer>
       <id>wolfram77</id>
@@ -27,11 +33,13 @@
       <url>https://github.com/wolfram77</url>
     </developer>
   </developers>
+  
   <scm>
     <connection>scm:git:git@github.com:javaf/extra-bit.git</connection>
     <developerConnection>scm:git:git@github.com:javaf/extra-bit.git</developerConnection>
     <url>git@github.com:javaf/extra-bit.git</url>
   </scm>
+  
   <distributionManagement>
     <snapshotRepository>
       <id>ossrh</id>
@@ -42,6 +50,7 @@
       <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
     </repository>
   </distributionManagement>
+  
   <build>
     <plugins>
       <plugin>
