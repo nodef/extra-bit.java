@@ -61,5 +61,5 @@ Bit.signExtend(15, 4);
 [signExtend]: https://github.com/javaf/extra-bit/wiki/signExtend
 [toggle]: https://github.com/javaf/extra-bit/wiki/toggle
 [rotate]: https://github.com/javaf/extra-bit/wiki/rotate
-[:package:]: https://www.npmjs.com/package/extra-bit
-[:ledger:]: https://unpkg.com/extra-bit/
+[:package:]: https://search.maven.org/artifact/io.github.javaf/extra-bit
+[:ledger:]: https://repo1.maven.org/maven2/io/github/javaf/extra-bit/
