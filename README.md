@@ -1,4 +1,5 @@
-The [bit] is a basic unit of information in information theory, computing. [:running:] [:vhs:] [:package:] [:moon:]
+The [bit] is a basic unit of information in information theory, computing.
+[:package:] [:ledger:]
 
 This package includes [bit twiddling hacks] by Sean Eron Anderson and many others.
 
@@ -60,8 +61,5 @@ Bit.signExtend(15, 4);
 [signExtend]: https://github.com/javaf/extra-bit/wiki/signExtend
 [toggle]: https://github.com/javaf/extra-bit/wiki/toggle
 [rotate]: https://github.com/javaf/extra-bit/wiki/rotate
-[:running:]: https://npm.runkit.com/extra-bit
 [:package:]: https://www.npmjs.com/package/extra-bit
-[:moon:]: https://www.npmjs.com/package/extra-bit.min
 [:ledger:]: https://unpkg.com/extra-bit/
-[:vhs:]: https://asciinema.org/a/337114
