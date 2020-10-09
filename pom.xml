@@ -81,6 +81,15 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-javadoc-plugin</artifactId>
         <version>3.2.0</version>
+        <configuration>
+          <show>public</show>
+          <nohelp>true</nohelp>
+          <header>${project.artifactId} ${project.version}</header>
+          <footer>${project.artifactId} ${project.version}</footer>
+          <doctitle>${project.artifactId} ${project.version}</doctitle>
+          <links>
+          </links>
+        </configuration>
         <executions>
           <execution>
             <id>attach-javadoc</id>
@@ -89,6 +98,19 @@
             </goals>
           </execution>
         </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-scm-publish-plugin</artifactId>
+        <version>1.1</version>
+        <configuration>
+          <checkoutDirectory>${project.build.directory}/docspublish</checkoutDirectory>
+          <checkinComment>Publishing javadoc for ${project.artifactId}:${project.version}</checkinComment>
+          <content>${project.reporting.outputDirectory}/docs</content>
+          <skipDeletedFiles>true</skipDeletedFiles>
+          <pubScmUrl>scm:git:git@github.com:javaf/extra-bit.git</pubScmUrl>
+          <scmBranch>gh-pages</scmBranch>
+        </configuration>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
