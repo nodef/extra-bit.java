@@ -1,1 +1,1 @@
-typeSearchIndex = [{"l":"All Classes","u":"allclasses-index.html"},{"p":"io.github.javaf","l":"Bit"}];updateSearchResults();
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"io.github.javaf","l":"Bit"}]
