@@ -126,7 +126,7 @@ public final class Bit {
    * Merges bits as per mask.
    * @param x first int
    * @param y second int
-   * @param m bit mask (0 => from x)
+   * @param m bit mask (0 ⇒ from x)
    * @return merged int
    */
   public static int merge(int x, int y, int m) {
@@ -137,7 +137,7 @@ public final class Bit {
    * Merges bits as per mask.
    * @param x first long
    * @param y second long
-   * @param m bit mask (0 => from x)
+   * @param m bit mask (0 ⇒ from x)
    * @return merged long
    */
   public static long merge(long x, long y, long m) {
