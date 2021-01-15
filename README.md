@@ -1,7 +1,7 @@
 The [bit] is a basic unit of information in information theory, computing.<br>
 :package: [Central](https://search.maven.org/artifact/io.github.javaf/extra-bit),
 :scroll: [Releases](https://repo1.maven.org/maven2/io/github/javaf/extra-bit/),
-:octocat: [GitHub](https://github.com/javaf/extra-bit/packages/??????????????),
+:octocat: [GitHub](https://github.com/javaf/hello-world/packages/575247),
 :frog: [Bintray](https://bintray.com/beta/#/bintray/jcenter/io.github.javaf:extra-bit),
 :peacock: [MvnRepository](https://mvnrepository.com/artifact/io.github.javaf/extra-bit),
 :newspaper: [Javadoc](https://javaf.github.io/extra-bit/)
