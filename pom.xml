@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <!-- Define Package -->
+  <!-- Avoid "dependency hell" with semantic versioning -->
   <modelVersion>4.0.0</modelVersion>
   <groupId>io.github.javaf</groupId>
   <artifactId>extra-bit</artifactId>
-  <version>0.0.13</version>
+  <version>0.0.14</version>
   <packaging>jar</packaging>
   
   <!-- Use JDK 11 -->
+  <!-- Comes with Long Term Support (LTS) -->
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>11</maven.compiler.source>
@@ -46,6 +48,7 @@
 
 
   <!-- GitHub Packages -->
+  <!-- See settings.xml for server (github) credentials -->
   <distributionManagement>
     <repository>
       <id>github</id>
@@ -145,6 +148,7 @@
       </activation>
       
       <!-- Maven Central Repository -->
+      <!-- See settings.xml for server (ossrh) credentials -->
       <distributionManagement>
         <snapshotRepository>
           <id>ossrh</id>
