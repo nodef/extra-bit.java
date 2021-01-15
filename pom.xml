@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>io.github.javaf</groupId>
   <artifactId>extra-bit</artifactId>
-  <version>0.0.11</version>
+  <version>0.0.12</version>
   <packaging>jar</packaging>
   
   <!-- Use JDK 11 -->
@@ -49,7 +49,7 @@
   <distributionManagement>
     <repository>
       <id>github</id>
-      <url>https://maven.pkg.github.com/javaf/hello-world</url>
+      <url>https://maven.pkg.github.com/javaf/extra-bit</url>
     </repository>
   </distributionManagement>
 
@@ -114,7 +114,7 @@
           <content>${project.build.directory}/apidocs</content>
           <checkoutDirectory>${project.build.directory}/scmpublish</checkoutDirectory>
           <checkinComment>Publishing javadoc for ${project.artifactId}:${project.version}</checkinComment>
-          <pubScmUrl>scm:git:git@github.com:javaf/hello-world.git</pubScmUrl>
+          <pubScmUrl>scm:git:git@github.com:javaf/extra-bit.git</pubScmUrl>
           <scmBranch>gh-pages</scmBranch>
           <skipDeletedFiles>true</skipDeletedFiles>
         </configuration>
