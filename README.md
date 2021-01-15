@@ -1,9 +1,21 @@
-The [bit] is a basic unit of information in information theory, computing.
-[:package:] [:ledger:]
+The [bit] is a basic unit of information in information theory, computing.<br>
+:package: [Central](https://search.maven.org/artifact/io.github.javaf/hello-world),
+:ledger: [Releases](https://repo1.maven.org/maven2/io/github/javaf/hello-world/),
+:octocat: [GitHub](https://github.com/javaf/hello-world/packages/573464),
+:frog: [Bintray](https://bintray.com/beta/#/bintray/jcenter/io.github.javaf:hello-world),
+:peacock: [MvnRepository](https://mvnrepository.com/artifact/io.github.javaf/hello-world),
+:blue_book: [Javadoc](https://javaf.github.io/hello-world/).
+
+<br>
 
 This package includes [bit twiddling hacks] by Sean Eron Anderson and many others.
 
 > Stability: Experimental.
+
+[bit]: https://en.wikipedia.org/wiki/Bit
+[bit twiddling hacks]: https://graphics.stanford.edu/~seander/bithacks.html
+
+<br>
 
 ```java
 import io.github.javaf;
@@ -24,35 +36,28 @@ Bit.signExtend(15, 4);
 // -1
 ```
 
-### reference
-
-| Method                | Action
-|-----------------------|-------
-| [get]                 | Gets a bit.
-| [set]                 | Sets a bit.
-| [toggle]              | Toggles a bit.
-| [swap]                | Swaps bit sequences.
-| [scan]                | Gets index of first set bit from LSB.
-| [count]               | Counts bits set.
-| [parity]              | Gets n-bit parity.
-| [rotate]              | Rotates bits.
-| [reverse]             | Reverses all bits.
-| [merge]               | Merges bits as per mask.
-| [interleave]          | Interleaves bits of two int16s.
-| [signExtend]          | Sign extends variable bit-width integer.
-
+<br>
 <br>
 
-### references
 
-- [Publishing javadoc to github using maven :: justme](https://blog.progs.be/517/publishing-javadoc-to-github-using-maven)
-- [Git error: “Host Key Verification Failed” when connecting to remote repository](https://stackoverflow.com/questions/13363553/git-error-host-key-verification-failed-when-connecting-to-remote-repository)
-- [Increment versions with the Maven Build Helper and the Versions Plugin :: Dennis Schulte](https://blog.codecentric.de/en/2015/04/increment-versions-maven-build-helper-versions-plugin/)
+## Index
 
-[![javaf](https://merferry.glitch.me/card/extra-bit.svg)](https://javaf.github.io)
+| Method       | Action                                   |
+| ------------ | ---------------------------------------- |
+| [get]        | Gets a bit.                              |
+| [set]        | Sets a bit.                              |
+| [toggle]     | Toggles a bit.                           |
+| [swap]       | Swaps bit sequences.                     |
+| [scan]       | Gets index of first set bit from LSB.    |
+| [count]      | Counts bits set.                         |
+| [parity]     | Gets n-bit parity.                       |
+| [rotate]     | Rotates bits.                            |
+| [reverse]    | Reverses all bits.                       |
+| [merge]      | Merges bits as per mask.                 |
+| [interleave] | Interleaves bits of two int16s.          |
+| [signExtend] | Sign extends variable bit-width integer. |
 
-[bit]: https://en.wikipedia.org/wiki/Bit
-[bit twiddling hacks]: https://graphics.stanford.edu/~seander/bithacks.html
+
 [get]: https://github.com/javaf/extra-bit/wiki/get
 [set]: https://github.com/javaf/extra-bit/wiki/set
 [setAs]: https://github.com/javaf/extra-bit/wiki/setAs
@@ -67,5 +72,18 @@ Bit.signExtend(15, 4);
 [signExtend]: https://github.com/javaf/extra-bit/wiki/signExtend
 [toggle]: https://github.com/javaf/extra-bit/wiki/toggle
 [rotate]: https://github.com/javaf/extra-bit/wiki/rotate
-[:package:]: https://search.maven.org/artifact/io.github.javaf/extra-bit
-[:ledger:]: https://repo1.maven.org/maven2/io/github/javaf/extra-bit/
+
+<br>
+<br>
+
+
+## References
+
+- [Publishing javadoc to github using maven](https://blog.progs.be/517/publishing-javadoc-to-github-using-maven)
+- [Git error: “Host Key Verification Failed” when connecting to remote repository](https://stackoverflow.com/a/13364116/1413259)
+- [Increment versions with the Maven Build Helper and the Versions Plugin](https://blog.codecentric.de/en/2015/04/increment-versions-maven-build-helper-versions-plugin/)
+
+<br>
+<br>
+
+[![](https://img.youtube.com/vi/r3QQ6dm64xg/maxresdefault.jpg)](https://www.youtube.com/watch?v=r3QQ6dm64xg)
