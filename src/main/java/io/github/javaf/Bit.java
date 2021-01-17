@@ -7,18 +7,19 @@ package io.github.javaf;
  */
 public final class Bit {
   private static final int[] DEBRUIJN_POS32 = {
-    0,  9,  1, 10, 13, 21,  2, 29, 11, 14, 16, 18, 22, 25,  3, 30, 
+    0,  9,  1, 10, 13, 21,  2, 29, 11, 14, 16, 18, 22, 25,  3, 30,
     8, 12, 20, 28, 15, 17, 24,  7, 19, 27, 23,  6, 26,  5,  4, 31
   };
-  
+
   private static final int[] MOD37_POS32 = {
     32, 0, 1, 26, 2, 23, 27, 0, 3, 16, 24, 30, 28, 11, 0, 13, 4, 7, 17, 0,
     25, 22, 31, 15, 29, 10, 12, 6, 0, 21, 14, 9, 5, 20, 8, 19, 18
   };
 
-  
+
+
   /**
-   * Counts bits set.
+   * Count bits set.
    * @param x an int
    * @return count
    */
@@ -29,7 +30,7 @@ public final class Bit {
   }
 
   /**
-   * Counts bits set.
+   * Count bits set.
    * @param x a long
    * @return count
    */
@@ -41,8 +42,9 @@ public final class Bit {
   }
 
 
+
   /**
-   * Gets a bit.
+   * Get a bit.
    * @param x an int
    * @param i bit index
    * @return bit
@@ -52,7 +54,7 @@ public final class Bit {
   }
 
   /**
-   * Gets a bit.
+   * Get a bit.
    * @param x a long
    * @param i bit index
    * @return bit
@@ -62,8 +64,9 @@ public final class Bit {
   }
 
 
+
   /**
-   * Gets bits as per mask.
+   * Get bits as per mask.
    * @param x an int
    * @param m bit mask
    * @return bits
@@ -73,7 +76,7 @@ public final class Bit {
   }
 
   /**
-   * Gets bits as per mask.
+   * Get bits as per mask.
    * @param x a long
    * @param m bit mask
    * @return bits
@@ -81,10 +84,11 @@ public final class Bit {
   public static long getAs(long x, long m) {
     return x & m;
   }
-  
+
+
 
   /**
-   * Interleaves bits of two shorts.
+   * Interleave bits of two shorts.
    * @param x first short
    * @param y second short
    * @return int
@@ -100,9 +104,9 @@ public final class Bit {
     y = (y | (y<<1)) & 0x55555555;
     return y | (x<<1);
   }
-  
+
   /**
-   * Interleaves bits of two ints.
+   * Interleave bits of two ints.
    * @param x first int
    * @param y second int
    * @return interleaved long
@@ -120,10 +124,11 @@ public final class Bit {
     y = (y | (y<<1)) & 0x5555555555555555L;
     return y | (x<<1);
   }
-  
+
+
 
   /**
-   * Merges bits as per mask.
+   * Merge bits as per mask.
    * @param x first int
    * @param y second int
    * @param m bit mask (0 ⇒ from x)
@@ -134,7 +139,7 @@ public final class Bit {
   }
 
   /**
-   * Merges bits as per mask.
+   * Merge bits as per mask.
    * @param x first long
    * @param y second long
    * @param m bit mask (0 ⇒ from x)
@@ -145,8 +150,9 @@ public final class Bit {
   }
 
 
+
   /**
-   * Gets 1-bit parity.
+   * Get 1-bit parity.
    * @param x an int
    * @return parity
    */
@@ -157,9 +163,9 @@ public final class Bit {
     x &= 0xF;
     return (0x6996>>>x) & 1;
   }
-  
+
   /**
-   * Gets 1-bit parity.
+   * Get 1-bit parity.
    * @param x a long
    * @return parity
    */
@@ -173,7 +179,7 @@ public final class Bit {
   }
 
   /**
-   * Gets n-bit parity.
+   * Get n-bit parity.
    * @param x an int
    * @param n number of bits (1)
    * @return parity
@@ -187,9 +193,9 @@ public final class Bit {
     }
     return a;
   }
-  
+
   /**
-   * Gets n-bit parity.
+   * Get n-bit parity.
    * @param x an int
    * @param n number of bits (1)
    * @return parity
@@ -204,9 +210,10 @@ public final class Bit {
     return (int) a;
   }
 
-  
+
+
   /**
-   * Reverses all bits.
+   * Reverse all bits.
    * @param x an int
    * @return reversed int
    */
@@ -217,9 +224,9 @@ public final class Bit {
     x = ((x>>>8) & 0x00FF00FF) | ((x & 0x00FF00FF)<<8);
     return (x>>>16) | (x<<16);
   }
-  
+
   /**
-   * Reverses all bits.
+   * Reverse all bits.
    * @param x a long
    * @return reversed long
    */
@@ -231,10 +238,11 @@ public final class Bit {
     x = ((x>>>16) & 0x0000FFFF0000FFFFL) | ((x & 0x0000FFFF0000FFFFL)<<16);
     return (x>>>32) | (x<<32);
   }
-  
-  
+
+
+
   /**
-   * Rotates bits.
+   * Rotate bits.
    * @param x an int
    * @param n rotate amount (+ve: left, -ve: right)
    * @return rotated int
@@ -244,7 +252,7 @@ public final class Bit {
   }
 
   /**
-   * Rotates bits.
+   * Rotate bits.
    * @param x a long
    * @param n rotate amount (+ve: left, -ve: right)
    * @return rotated long
@@ -254,17 +262,18 @@ public final class Bit {
   }
 
 
+
   /**
-   * Gets index of first set bit from LSB.
+   * Get index of first set bit from LSB.
    * @param x an int
    * @return bit index
    */
   public static int scan(int x) {
     return MOD37_POS32[(-x & x) % 37];
   }
-  
+
   /**
-   * Gets index of first set bit from LSB.
+   * Get index of first set bit from LSB.
    * @param x a long
    * @return bit index
    */
@@ -273,10 +282,11 @@ public final class Bit {
     int b = scan((int)(x>>>32));
     return a==32? b+32 : a;
   }
-  
+
+
 
   /**
-   * Gets index of first set bit from MSB.
+   * Get index of first set bit from MSB.
    * @param x an int32
    * @return bit index
    */
@@ -288,9 +298,9 @@ public final class Bit {
     x |= x>>>16;
     return DEBRUIJN_POS32[(x*0x07C4ACDD)>>>27];
   }
-  
+
   /**
-   * Gets index of first set bit from LSB.
+   * Get index of first set bit from LSB.
    * @param x a long
    * @return bit index
    */
@@ -299,10 +309,11 @@ public final class Bit {
     int b = scanReverse((int)(x>>>32));
     return a==32? b+32 : a;
   }
-  
+
+
 
   /**
-   * Sets a bit.
+   * Set a bit.
    * @param x an int
    * @param i bit index
    * @param f bit value (1)
@@ -313,7 +324,7 @@ public final class Bit {
   }
 
   /**
-   * Sets a bit.
+   * Set a bit.
    * @param x a long
    * @param i bit index
    * @param f bit value (1)
@@ -324,8 +335,9 @@ public final class Bit {
   }
 
 
+
   /**
-   * Sets bits as per mask.
+   * Set bits as per mask.
    * @param x an int
    * @param m bit mask
    * @param f bit value (1)
@@ -336,7 +348,7 @@ public final class Bit {
   }
 
   /**
-   * Sets bits as per mask.
+   * Set bits as per mask.
    * @param x a long
    * @param m bit mask
    * @param f bit value (1)
@@ -346,9 +358,10 @@ public final class Bit {
     return (x & ~m) | ((long) -f & m);
   }
 
-  
+
+
   /**
-   * Sign extends variable bit-width integer.
+   * Sign extend variable bit-width integer.
    * @param x variable bit-width int
    * @param w bit width (32)
    * @return sign-extended int
@@ -357,9 +370,9 @@ public final class Bit {
     w = 32-w;
     return (x<<w)>>w;
   }
-  
+
   /**
-   * Sign extends variable bit-width integer.
+   * Sign extend variable bit-width integer.
    * @param x variable bit-width long
    * @param w bit width (64)
    * @return sign-extended long
@@ -368,10 +381,35 @@ public final class Bit {
     w = 64-w;
     return (x<<w)>>w;
   }
-  
-  
+
+
+
   /**
-   * Swaps bit sequences.
+   * Swap bits.
+   * @param x an int
+   * @param i first bit index
+   * @param j second bit index
+   * @return swapped int
+   */
+  public static int swap(int x, int i, int j) {
+      int t = ((x>>>i)^(x>>>j)) & 1;
+      return x ^ ((t<<i)|(t<<j));
+  }
+
+  /**
+   * Swap bits.
+   * @param x a long
+   * @param i first bit index
+   * @param j second bit index
+   * @return swapped long
+   */
+  public static long swap(long x, int i, int j) {
+      long t = ((x>>>i)^(x>>>j)) & 1;
+      return x ^ ((t<<i)|(t<<j));
+  }
+
+  /**
+   * Swap bit sequences.
    * @param x an int
    * @param i first bit index
    * @param j second bit index
@@ -382,9 +420,9 @@ public final class Bit {
       int t = ((x>>>i)^(x>>>j)) & ((1<<n)-1);
       return x ^ ((t<<i)|(t<<j));
   }
-  
+
   /**
-   * Swaps bit sequences.
+   * Swap bit sequences.
    * @param x a long
    * @param i first bit index
    * @param j second bit index
@@ -395,10 +433,11 @@ public final class Bit {
       long t = ((x>>>i)^(x>>>j)) & ((1L<<n)-1L);
       return x ^ ((t<<i)|(t<<j));
   }
-  
-  
+
+
+
   /**
-   * Toggles a bit.
+   * Toggle a bit.
    * @param x an int
    * @param i bit index
    * @return toggled int
@@ -406,9 +445,9 @@ public final class Bit {
   public static int toggle(int x, int i) {
     return x ^ (1<<i);
   }
-  
+
   /**
-   * Toggles a bit.
+   * Toggle a bit.
    * @param x a long
    * @param i bit index
    * @return toggled long
@@ -416,10 +455,11 @@ public final class Bit {
   public static long toggle(long x, int i) {
     return x ^ (1<<i);
   }
-  
-  
+
+
+
   /**
-   * Toggles bits as per mask.
+   * Toggle bits as per mask.
    * @param x an int
    * @param m bit mask
    * @return toggled int
@@ -427,9 +467,9 @@ public final class Bit {
   public static int toggleAs(int x, int m) {
     return x ^ m;
   }
-  
+
   /**
-   * Toggles bits as per mask.
+   * Toggle bits as per mask.
    * @param x a long
    * @param m bit mask
    * @return toggled long

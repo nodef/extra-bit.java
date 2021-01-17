@@ -19,7 +19,7 @@ This package includes [bit twiddling hacks] by Sean Eron Anderson and many other
 <br>
 
 ```java
-import io.github.javaf;
+import io.github.javaf.*;
 
 Bit.count(7);
 // 3 (111 => 3)
@@ -43,21 +43,20 @@ Bit.signExtend(15, 4);
 
 ## Index
 
-| Method       | Action                                   |
-| ------------ | ---------------------------------------- |
-| [get]        | Gets a bit.                              |
-| [set]        | Sets a bit.                              |
-| [toggle]     | Toggles a bit.                           |
-| [swap]       | Swaps bit sequences.                     |
-| [scan]       | Gets index of first set bit from LSB.    |
-| [count]      | Counts bits set.                         |
-| [parity]     | Gets n-bit parity.                       |
-| [rotate]     | Rotates bits.                            |
-| [reverse]    | Reverses all bits.                       |
-| [merge]      | Merges bits as per mask.                 |
-| [interleave] | Interleaves bits of two int16s.          |
-| [signExtend] | Sign extends variable bit-width integer. |
-
+| Method       | Action                                  |
+| ------------ | --------------------------------------- |
+| [get]        | Get a bit.                              |
+| [set]        | Set a bit.                              |
+| [toggle]     | Toggle a bit.                           |
+| [swap]       | Swap bit sequences.                     |
+| [scan]       | Get index of first set bit from LSB.    |
+| [count]      | Count bits set.                         |
+| [parity]     | Get n-bit parity.                       |
+| [rotate]     | Rotate bits.                            |
+| [reverse]    | Reverse all bits.                       |
+| [merge]      | Merge bits as per mask.                 |
+| [interleave] | Interleave bits of two int16s.          |
+| [signExtend] | Sign extend variable bit-width integer. |
 
 [get]: https://github.com/javaf/extra-bit/wiki/get
 [set]: https://github.com/javaf/extra-bit/wiki/set
@@ -73,16 +72,6 @@ Bit.signExtend(15, 4);
 [signExtend]: https://github.com/javaf/extra-bit/wiki/signExtend
 [toggle]: https://github.com/javaf/extra-bit/wiki/toggle
 [rotate]: https://github.com/javaf/extra-bit/wiki/rotate
-
-<br>
-<br>
-
-
-## References
-
-- [Publishing javadoc to github using maven](https://blog.progs.be/517/publishing-javadoc-to-github-using-maven)
-- [Git error: “Host Key Verification Failed” when connecting to remote repository](https://stackoverflow.com/a/13364116/1413259)
-- [Increment versions with the Maven Build Helper and the Versions Plugin](https://blog.codecentric.de/en/2015/04/increment-versions-maven-build-helper-versions-plugin/)
 
 <br>
 <br>
