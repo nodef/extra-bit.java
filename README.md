@@ -22,13 +22,13 @@ This package includes [bit twiddling hacks] by Sean Eron Anderson and many other
 import io.github.javaf.*;
 
 Bit.count(7);
-// 3 (111 => 3)
+// 3 (111 ⇒ 3)
 
 Bit.parity(8, 2);
-// 2 (10,00 => 10)
+// 2 (10,00 ⇒ 10)
 
 Bit.swap(6, 1, 0);
-// 5 (110 => 101)
+// 5 (110 ⇒ 101)
 
 Bit.reverse(0xFFFF0000);
 // 65535 (0x0000FFFF)

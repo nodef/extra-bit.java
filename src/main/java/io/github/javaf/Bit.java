@@ -34,10 +34,15 @@ public final class Bit {
   // GET*, SET*, TOGGLE*, SWAP
   /**
    * Get a bit.
-   * <a href="https://github.com/javaf/extra-boolean/wiki/get">📘</a>
+   * <a href="https://github.com/javaf/extra-bit/wiki/get">📘</a>
    * @param x an int
    * @param i bit index
    * @return bit
+   *<pre>{@code
+   *get(6, 0) == 0  // 110,0 ⇒ 0
+   *get(6, 1) == 1  // 110,1 ⇒ 1
+   *get(6, 2) == 1  // 110,2 ⇒ 1
+   *}</pre>
    */
   public static int get(int x, int i) {
     return (x>>>i) & 1;
@@ -45,10 +50,15 @@ public final class Bit {
 
   /**
    * Get a bit.
-   * <a href="https://github.com/javaf/extra-boolean/wiki/get">📘</a>
+   * <a href="https://github.com/javaf/extra-bit/wiki/get">📘</a>
    * @param x a long
    * @param i bit index
    * @return bit
+   *<pre>{@code
+   *get(6, 0) == 0  // 110,0 ⇒ 0
+   *get(6, 1) == 1  // 110,1 ⇒ 1
+   *get(6, 2) == 1  // 110,2 ⇒ 1
+   *}</pre>
    */
   public static int get(long x, int i) {
     return (int) (x>>>i) & 1;
@@ -58,10 +68,15 @@ public final class Bit {
 
   /**
    * Get bits as per mask.
-   * <a href="https://github.com/javaf/extra-boolean/wiki/getAs">📘</a>
+   * <a href="https://github.com/javaf/extra-bit/wiki/getAs">📘</a>
    * @param x an int
    * @param m bit mask
    * @return bits
+   *<pre>{@code
+   *getAs(6, 4) == 4  // 110,100 ⇒ 100
+   *getAs(6, 7) == 6  // 110,111 ⇒ 110
+   *getAs(6, 5) == 4  // 110,101 ⇒ 100
+   *}</pre>
    */
   public static int getAs(int x, int m) {
     return x & m;
@@ -69,10 +84,15 @@ public final class Bit {
 
   /**
    * Get bits as per mask.
-   * <a href="https://github.com/javaf/extra-boolean/wiki/getAs">📘</a>
+   * <a href="https://github.com/javaf/extra-bit/wiki/getAs">📘</a>
    * @param x a long
    * @param m bit mask
    * @return bits
+   *<pre>{@code
+   *getAs(6, 4) == 4  // 110,100 ⇒ 100
+   *getAs(6, 7) == 6  // 110,111 ⇒ 110
+   *getAs(6, 5) == 4  // 110,101 ⇒ 100
+   *}</pre>
    */
   public static long getAs(long x, long m) {
     return x & m;
@@ -82,11 +102,16 @@ public final class Bit {
 
   /**
    * Set a bit.
-   * <a href="https://github.com/javaf/extra-boolean/wiki/set">📘</a>
+   * <a href="https://github.com/javaf/extra-bit/wiki/set">📘</a>
    * @param x an int
    * @param i bit index
    * @param f bit value (1)
    * @return set int
+   *<pre>{@code
+   *set(6, 0, 1) == 7  // 110,0,1 ⇒ 111
+   *set(6, 2, 1) == 6  // 110,2,1 ⇒ 110
+   *set(6, 2, 0) == 2  // 110,2,0 ⇒ 010
+   *}</pre>
    */
   public static int set(int x, int i, int f) {
     return (x & ~(1<<i)) | (f<<i);
@@ -94,11 +119,16 @@ public final class Bit {
 
   /**
    * Set a bit.
-   * <a href="https://github.com/javaf/extra-boolean/wiki/set">📘</a>
+   * <a href="https://github.com/javaf/extra-bit/wiki/set">📘</a>
    * @param x a long
    * @param i bit index
    * @param f bit value (1)
    * @return set long
+   *<pre>{@code
+   *set(6, 0, 1) == 7  // 110,0,1 ⇒ 111
+   *set(6, 2, 1) == 6  // 110,2,1 ⇒ 110
+   *set(6, 2, 0) == 2  // 110,2,0 ⇒ 010
+   *}</pre>
    */
   public static long set(long x, int i, int f) {
     return (x & ~(1<<i)) | ((long) f<<i);
@@ -108,11 +138,16 @@ public final class Bit {
 
   /**
    * Set bits as per mask.
-   * <a href="https://github.com/javaf/extra-boolean/wiki/setAs">📘</a>
+   * <a href="https://github.com/javaf/extra-bit/wiki/setAs">📘</a>
    * @param x an int
    * @param m bit mask
    * @param f bit value (1)
    * @return set int
+   *<pre>{@code
+   *setAs(8, 2, 1)          == 10    // 0x8 set 0x2      ⇒ 0xA
+   *setAs(15, 3, 0)         == 12    // 0xF clear 0x3    ⇒ 0xC
+   *setAs(0x1234, 0x430, 1) == 5684  // 0x1234 set 0x430 ⇒ 0x1634
+   *}</pre>
    */
   public static int setAs(int x, int m, int f) {
     return (x & ~m) | (-f & m);
@@ -120,11 +155,16 @@ public final class Bit {
 
   /**
    * Set bits as per mask.
-   * <a href="https://github.com/javaf/extra-boolean/wiki/setAs">📘</a>
+   * <a href="https://github.com/javaf/extra-bit/wiki/setAs">📘</a>
    * @param x a long
    * @param m bit mask
    * @param f bit value (1)
    * @return set long
+   *<pre>{@code
+   *setAs(8, 2, 1)          == 10    // 0x8 set 0x2      ⇒ 0xA
+   *setAs(15, 3, 0)         == 12    // 0xF clear 0x3    ⇒ 0xC
+   *setAs(0x1234, 0x430, 1) == 5684  // 0x1234 set 0x430 ⇒ 0x1634
+   *}</pre>
    */
   public static long setAs(long x, long m, int f) {
     return (x & ~m) | ((long) -f & m);
@@ -134,10 +174,15 @@ public final class Bit {
 
   /**
    * Toggle a bit.
-   * <a href="https://github.com/javaf/extra-boolean/wiki/toggle">📘</a>
+   * <a href="https://github.com/javaf/extra-bit/wiki/toggle">📘</a>
    * @param x an int
    * @param i bit index
    * @return toggled int
+   *<pre>{@code
+   *toggle(6, 0) == 7  // 110,0 ⇒ 111
+   *toggle(6, 1) == 4  // 110,1 ⇒ 100
+   *toggle(6, 2) == 2  // 110,2 ⇒ 010
+   *}</pre>
    */
   public static int toggle(int x, int i) {
     return x ^ (1<<i);
@@ -145,10 +190,15 @@ public final class Bit {
 
   /**
    * Toggle a bit.
-   * <a href="https://github.com/javaf/extra-boolean/wiki/toggle">📘</a>
+   * <a href="https://github.com/javaf/extra-bit/wiki/toggle">📘</a>
    * @param x a long
    * @param i bit index
    * @return toggled long
+   *<pre>{@code
+   *toggle(6, 0) == 7  // 110,0 ⇒ 111
+   *toggle(6, 1) == 4  // 110,1 ⇒ 100
+   *toggle(6, 2) == 2  // 110,2 ⇒ 010
+   *}</pre>
    */
   public static long toggle(long x, int i) {
     return x ^ (1<<i);
@@ -158,10 +208,15 @@ public final class Bit {
 
   /**
    * Toggle bits as per mask.
-   * <a href="https://github.com/javaf/extra-boolean/wiki/toggleAs">📘</a>
+   * <a href="https://github.com/javaf/extra-bit/wiki/toggleAs">📘</a>
    * @param x an int
    * @param m bit mask
    * @return toggled int
+   *<pre>{@code
+   *toggleAs(6, 1) == 7  // 110,000 ⇒ 111
+   *toggleAs(6, 7) == 1  // 110,111 ⇒ 001
+   *toggleAs(6, 3) == 5  // 110,011 ⇒ 101
+   *}</pre>
    */
   public static int toggleAs(int x, int m) {
     return x ^ m;
@@ -169,10 +224,15 @@ public final class Bit {
 
   /**
    * Toggle bits as per mask.
-   * <a href="https://github.com/javaf/extra-boolean/wiki/toggleAs">📘</a>
+   * <a href="https://github.com/javaf/extra-bit/wiki/toggleAs">📘</a>
    * @param x a long
    * @param m bit mask
    * @return toggled long
+   *<pre>{@code
+   *toggleAs(6, 1) == 7  // 110,000 ⇒ 111
+   *toggleAs(6, 7) == 1  // 110,111 ⇒ 001
+   *toggleAs(6, 3) == 5  // 110,011 ⇒ 101
+   *}</pre>
    */
   public static long toggleAs(long x, long m) {
     return x ^ m;
@@ -182,11 +242,16 @@ public final class Bit {
 
   /**
    * Swap bits.
-   * <a href="https://github.com/javaf/extra-boolean/wiki/swap">📘</a>
+   * <a href="https://github.com/javaf/extra-bit/wiki/swap">📘</a>
    * @param x an int
    * @param i first bit index
    * @param j second bit index
    * @return swapped int
+   *<pre>{@code
+   *swap(6, 1, 0, 1)      == 5      // 110    ⇒ 101
+   *swap(0x1234, 8, 4, 4) == 4900   // 0x1234 ⇒ 0x1324
+   *swap(0x4AAB, 8, 0, 8) == 43850  // 0x4AAB ⇒ 0xAB4A
+   *}</pre>
    */
   public static int swap(int x, int i, int j) {
     int t = ((x>>>i)^(x>>>j)) & 1;
@@ -195,11 +260,16 @@ public final class Bit {
 
   /**
    * Swap bits.
-   * <a href="https://github.com/javaf/extra-boolean/wiki/swap">📘</a>
+   * <a href="https://github.com/javaf/extra-bit/wiki/swap">📘</a>
    * @param x a long
    * @param i first bit index
    * @param j second bit index
    * @return swapped long
+   *<pre>{@code
+   *swap(6, 1, 0, 1)      == 5      // 110    ⇒ 101
+   *swap(0x1234, 8, 4, 4) == 4900   // 0x1234 ⇒ 0x1324
+   *swap(0x4AAB, 8, 0, 8) == 43850  // 0x4AAB ⇒ 0xAB4A
+   *}</pre>
    */
   public static long swap(long x, int i, int j) {
     long t = ((x>>>i)^(x>>>j)) & 1;
@@ -208,12 +278,17 @@ public final class Bit {
 
   /**
    * Swap bit sequences.
-   * <a href="https://github.com/javaf/extra-boolean/wiki/swap">📘</a>
+   * <a href="https://github.com/javaf/extra-bit/wiki/swap">📘</a>
    * @param x an int
    * @param i first bit index
    * @param j second bit index
    * @param n bit width (1)
    * @return swapped int
+   *<pre>{@code
+   *swap(6, 1, 0, 1)      == 5      // 110    ⇒ 101
+   *swap(0x1234, 8, 4, 4) == 4900   // 0x1234 ⇒ 0x1324
+   *swap(0x4AAB, 8, 0, 8) == 43850  // 0x4AAB ⇒ 0xAB4A
+   *}</pre>
    */
   public static int swap(int x, int i, int j, int n) {
     int t = ((x>>>i)^(x>>>j)) & ((1<<n)-1);
@@ -222,12 +297,17 @@ public final class Bit {
 
   /**
    * Swap bit sequences.
-   * <a href="https://github.com/javaf/extra-boolean/wiki/swap">📘</a>
+   * <a href="https://github.com/javaf/extra-bit/wiki/swap">📘</a>
    * @param x a long
    * @param i first bit index
    * @param j second bit index
    * @param n bit width (1)
    * @return swapped long
+   *<pre>{@code
+   *swap(6, 1, 0, 1)      == 5      // 110    ⇒ 101
+   *swap(0x1234, 8, 4, 4) == 4900   // 0x1234 ⇒ 0x1324
+   *swap(0x4AAB, 8, 0, 8) == 43850  // 0x4AAB ⇒ 0xAB4A
+   *}</pre>
    */
   public static long swap(long x, int i, int j, int n) {
     long t = ((x>>>i)^(x>>>j)) & ((1L<<n)-1L);
@@ -240,9 +320,14 @@ public final class Bit {
   // COUNT, PARITY, SCAN*
   /**
    * Count bits set.
-   * <a href="https://github.com/javaf/extra-boolean/wiki/count">📘</a>
+   * <a href="https://github.com/javaf/extra-bit/wiki/count">📘</a>
    * @param x an int
    * @return count
+   *<pre>{@code
+   *count(7)  == 3  // 111    ⇒ 3
+   *count(12) == 2  // 1100   ⇒ 2
+   *count(63) == 6  // 111111 ⇒ 6
+   *}</pre>
    */
   public static int count(int x) {
     x = x - ((x>>>1) & 0x55555555);
@@ -252,9 +337,14 @@ public final class Bit {
 
   /**
    * Count bits set.
-   * <a href="https://github.com/javaf/extra-boolean/wiki/count">📘</a>
+   * <a href="https://github.com/javaf/extra-bit/wiki/count">📘</a>
    * @param x a long
    * @return count
+   *<pre>{@code
+   *count(7)  == 3  // 111    ⇒ 3
+   *count(12) == 2  // 1100   ⇒ 2
+   *count(63) == 6  // 111111 ⇒ 6
+   *}</pre>
    */
   public static int count(long x) {
     x = x - ((x>>>1) & 0x5555555555555555L);
@@ -267,9 +357,15 @@ public final class Bit {
 
   /**
    * Get 1-bit parity.
-   * <a href="https://github.com/javaf/extra-boolean/wiki/parity">📘</a>
+   * <a href="https://github.com/javaf/extra-bit/wiki/parity">📘</a>
    * @param x an int
    * @return parity
+   *<pre>{@code
+   *parity(7, 1)  == 1   // 1,1,1   ⇒ 1
+   *parity(5, 1)  == 0   // 1,0,1   ⇒ 0
+   *parity(8, 2)  == 2   // 10,00   ⇒ 10
+   *parity(63, 4) == 12  // 11,1111 ⇒ 1100
+   *}</pre>
    */
   public static int parity(int x) {
     x ^= x>>>16;
@@ -281,9 +377,15 @@ public final class Bit {
 
   /**
    * Get 1-bit parity.
-   * <a href="https://github.com/javaf/extra-boolean/wiki/parity">📘</a>
+   * <a href="https://github.com/javaf/extra-bit/wiki/parity">📘</a>
    * @param x a long
    * @return parity
+   *<pre>{@code
+   *parity(7, 1)  == 1   // 1,1,1   ⇒ 1
+   *parity(5, 1)  == 0   // 1,0,1   ⇒ 0
+   *parity(8, 2)  == 2   // 10,00   ⇒ 10
+   *parity(63, 4) == 12  // 11,1111 ⇒ 1100
+   *}</pre>
    */
   public static int parity(long x) {
     x ^= x>>>32;
@@ -296,10 +398,16 @@ public final class Bit {
 
   /**
    * Get n-bit parity.
-   * <a href="https://github.com/javaf/extra-boolean/wiki/parity">📘</a>
+   * <a href="https://github.com/javaf/extra-bit/wiki/parity">📘</a>
    * @param x an int
    * @param n number of bits (1)
    * @return parity
+   *<pre>{@code
+   *parity(7, 1)  == 1   // 1,1,1   ⇒ 1
+   *parity(5, 1)  == 0   // 1,0,1   ⇒ 0
+   *parity(8, 2)  == 2   // 10,00   ⇒ 10
+   *parity(63, 4) == 12  // 11,1111 ⇒ 1100
+   *}</pre>
    */
   public static int parity(int x, int n) {
     if (n == 1) return parity(x);
@@ -313,10 +421,16 @@ public final class Bit {
 
   /**
    * Get n-bit parity.
-   * <a href="https://github.com/javaf/extra-boolean/wiki/parity">📘</a>
+   * <a href="https://github.com/javaf/extra-bit/wiki/parity">📘</a>
    * @param x an int
    * @param n number of bits (1)
    * @return parity
+   *<pre>{@code
+   *parity(7, 1)  == 1   // 1,1,1   ⇒ 1
+   *parity(5, 1)  == 0   // 1,0,1   ⇒ 0
+   *parity(8, 2)  == 2   // 10,00   ⇒ 10
+   *parity(63, 4) == 12  // 11,1111 ⇒ 1100
+   *}</pre>
    */
   public static int parity(long x, int n) {
     if (n == 1) return parity(x);
@@ -332,9 +446,14 @@ public final class Bit {
 
   /**
    * Get index of first set bit from LSB.
-   * <a href="https://github.com/javaf/extra-boolean/wiki/scan">📘</a>
+   * <a href="https://github.com/javaf/extra-bit/wiki/scan">📘</a>
    * @param x an int
    * @return bit index
+   *<pre>{@code
+   *scan(7)  == 0  // 111     ⇒ 0
+   *scan(12) == 2  // 1100    ⇒ 2
+   *scan(64) == 6  // 1000000 ⇒ 6
+   *}</pre>
    */
   public static int scan(int x) {
     return MOD37_POS32[(-x & x) % 37];
@@ -342,9 +461,14 @@ public final class Bit {
 
   /**
    * Get index of first set bit from LSB.
-   * <a href="https://github.com/javaf/extra-boolean/wiki/scan">📘</a>
+   * <a href="https://github.com/javaf/extra-bit/wiki/scan">📘</a>
    * @param x a long
    * @return bit index
+   *<pre>{@code
+   *scan(7)  == 0  // 111     ⇒ 0
+   *scan(12) == 2  // 1100    ⇒ 2
+   *scan(64) == 6  // 1000000 ⇒ 6
+   *}</pre>
    */
   public static int scan(long x) {
     int a = scan((int)(x & 0xFFFFFFFFL));
@@ -356,9 +480,14 @@ public final class Bit {
 
   /**
    * Get index of first set bit from MSB.
-   * <a href="https://github.com/javaf/extra-boolean/wiki/scanReverse">📘</a>
+   * <a href="https://github.com/javaf/extra-bit/wiki/scanReverse">📘</a>
    * @param x an int32
    * @return bit index
+   *<pre>{@code
+   *scanReverse(13) == 3  // 1101 ⇒ 3
+   *scanReverse(5)  == 2  // 101  ⇒ 2
+   *scanReverse(1)  == 0  // 1    ⇒ 0
+   *}</pre>
    */
   public static int scanReverse(int x) {
     x |= x>>>1;
@@ -371,9 +500,14 @@ public final class Bit {
 
   /**
    * Get index of first set bit from LSB.
-   * <a href="https://github.com/javaf/extra-boolean/wiki/scanReverse">📘</a>
+   * <a href="https://github.com/javaf/extra-bit/wiki/scanReverse">📘</a>
    * @param x a long
    * @return bit index
+   *<pre>{@code
+   *scanReverse(13) == 3  // 1101 ⇒ 3
+   *scanReverse(5)  == 2  // 101  ⇒ 2
+   *scanReverse(1)  == 0  // 1    ⇒ 0
+   *}</pre>
    */
   public static int scanReverse(long x) {
     int a = scanReverse((int)(x & 0xFFFFFFFFL));
@@ -387,11 +521,16 @@ public final class Bit {
   // MERGE, INTERLEAVE, ROTATE, REVERSE, SIGNEXTEND
   /**
    * Merge bits as per mask.
-   * <a href="https://github.com/javaf/extra-boolean/wiki/merge">📘</a>
+   * <a href="https://github.com/javaf/extra-bit/wiki/merge">📘</a>
    * @param x first int
    * @param y second int
    * @param m bit mask (0 ⇒ from x)
    * @return merged int
+   *<pre>{@code
+   *merge(0x12, 0x24, 0x0F)       == 20     // 0x14
+   *merge(0x1234, 0xABCD, 0x0F0F) == 6973   // 0x1B3D
+   *merge(0xAAAA, 0xBBBB, 0x3333) == 48059  // 0xBBBB
+   *}</pre>
    */
   public static int merge(int x, int y, int m) {
     return x ^ ((x^y) & m);
@@ -399,11 +538,16 @@ public final class Bit {
 
   /**
    * Merge bits as per mask.
-   * <a href="https://github.com/javaf/extra-boolean/wiki/merge">📘</a>
+   * <a href="https://github.com/javaf/extra-bit/wiki/merge">📘</a>
    * @param x first long
    * @param y second long
    * @param m bit mask (0 ⇒ from x)
    * @return merged long
+   *<pre>{@code
+   *merge(0x12, 0x24, 0x0F)       == 20     // 0x14
+   *merge(0x1234, 0xABCD, 0x0F0F) == 6973   // 0x1B3D
+   *merge(0xAAAA, 0xBBBB, 0x3333) == 48059  // 0xBBBB
+   *}</pre>
    */
   public static long merge(long x, long y, long m) {
     return x ^ ((x^y) & m);
@@ -413,10 +557,15 @@ public final class Bit {
 
   /**
    * Interleave bits of two shorts.
-   * <a href="https://github.com/javaf/extra-boolean/wiki/interleave">📘</a>
+   * <a href="https://github.com/javaf/extra-bit/wiki/interleave">📘</a>
    * @param x first short
    * @param y second short
    * @return int
+   *<pre>{@code
+   *interleave(0x0000, 0xFFFF) == 1431655765  // 0x55555555
+   *interleave(0x1234, 0x1234) == 51121968    // 0x030C0F30
+   *interleave(0x1234, 0x4321) == 302845473   // 0x120D0E21
+   *}</pre>
    */
   public static int interleave(int x, int y) {
     x = (x | (x<<8)) & 0x00FF00FF;
@@ -432,10 +581,15 @@ public final class Bit {
 
   /**
    * Interleave bits of two ints.
-   * <a href="https://github.com/javaf/extra-boolean/wiki/interleave">📘</a>
+   * <a href="https://github.com/javaf/extra-bit/wiki/interleave">📘</a>
    * @param x first int
    * @param y second int
    * @return interleaved long
+   *<pre>{@code
+   *interleave(0x0000, 0xFFFF) == 1431655765  // 0x55555555
+   *interleave(0x1234, 0x1234) == 51121968    // 0x030C0F30
+   *interleave(0x1234, 0x4321) == 302845473   // 0x120D0E21
+   *}</pre>
    */
   public static long interleave(long x, long y) {
     x = (x | (x<<16)) & 0x0000FFFF0000FFFFL;
@@ -455,10 +609,14 @@ public final class Bit {
 
   /**
    * Rotate bits.
-   * <a href="https://github.com/javaf/extra-boolean/wiki/rotate">📘</a>
+   * <a href="https://github.com/javaf/extra-bit/wiki/rotate">📘</a>
    * @param x an int
    * @param n rotate amount (+ve: left, -ve: right)
    * @return rotated int
+   *<pre>{@code
+   *rotate(0x11112222, 4)  == 286401057  // 0x11122221
+   *rotate(0x11112222, -4) == 554766882  // 0x21111222
+   *}</pre>
    */
   public static int rotate(int x, int n) {
     return n<0? x<<32+n | x>>>-n : x<<n | x>>32-n;
@@ -466,10 +624,14 @@ public final class Bit {
 
   /**
    * Rotate bits.
-   * <a href="https://github.com/javaf/extra-boolean/wiki/rotate">📘</a>
+   * <a href="https://github.com/javaf/extra-bit/wiki/rotate">📘</a>
    * @param x a long
    * @param n rotate amount (+ve: left, -ve: right)
    * @return rotated long
+   *<pre>{@code
+   *rotate(0x11112222, 4)  == 286401057  // 0x11122221
+   *rotate(0x11112222, -4) == 554766882  // 0x21111222
+   *}</pre>
    */
   public static long rotate(long x, int n) {
     return n<0? x<<64+n | x>>>-n : x<<n | x>>64-n;
@@ -479,9 +641,14 @@ public final class Bit {
 
   /**
    * Reverse all bits.
-   * <a href="https://github.com/javaf/extra-boolean/wiki/reverse">📘</a>
+   * <a href="https://github.com/javaf/extra-bit/wiki/reverse">📘</a>
    * @param x an int
    * @return reversed int
+   *<pre>{@code
+   *reverse(0xFFFF0000) == 65535      // 0x0000FFFF
+   *reverse(0x00AABBCC) == 870143232  // 0x33DD5500
+   *reverse(0x1234)     == 742916096  // 0x2C480000
+   *}</pre>
    */
   public static int reverse(int x) {
     x = ((x>>>1) & 0x55555555) | ((x & 0x55555555)<<1);
@@ -493,9 +660,14 @@ public final class Bit {
 
   /**
    * Reverse all bits.
-   * <a href="https://github.com/javaf/extra-boolean/wiki/reverse">📘</a>
+   * <a href="https://github.com/javaf/extra-bit/wiki/reverse">📘</a>
    * @param x a long
    * @return reversed long
+   *<pre>{@code
+   *reverse(0xFFFF0000) == 65535      // 0x0000FFFF
+   *reverse(0x00AABBCC) == 870143232  // 0x33DD5500
+   *reverse(0x1234)     == 742916096  // 0x2C480000
+   *}</pre>
    */
   public static long reverse(long x) {
     x = ((x>>>1) & 0x5555555555555555L) | ((x & 0x5555555555555555L)<<1);
@@ -510,10 +682,15 @@ public final class Bit {
 
   /**
    * Sign extend variable bit-width integer.
-   * <a href="https://github.com/javaf/extra-boolean/wiki/signExtend">📘</a>
+   * <a href="https://github.com/javaf/extra-bit/wiki/signExtend">📘</a>
    * @param x variable bit-width int
    * @param w bit width (32)
    * @return sign-extended int
+   *<pre>{@code
+   *signExtend(15, 4) == -1  // 1111 ⇒ -1
+   *signExtend(3, 3)  == 3   // 011  ⇒ 3
+   *signExtend(4, 3)  == -4  // 100  ⇒ -4
+   *}</pre>
    */
   public static int signExtend(int x, int w) {
     w = 32-w;
@@ -522,10 +699,15 @@ public final class Bit {
 
   /**
    * Sign extend variable bit-width integer.
-   * <a href="https://github.com/javaf/extra-boolean/wiki/signExtend">📘</a>
+   * <a href="https://github.com/javaf/extra-bit/wiki/signExtend">📘</a>
    * @param x variable bit-width long
    * @param w bit width (64)
    * @return sign-extended long
+   *<pre>{@code
+   *signExtend(15, 4) == -1  // 1111 ⇒ -1
+   *signExtend(3, 3)  == 3   // 011  ⇒ 3
+   *signExtend(4, 3)  == -4  // 100  ⇒ -4
+   *}</pre>
    */
   public static long signExtend(long x, int w) {
     w = 64-w;

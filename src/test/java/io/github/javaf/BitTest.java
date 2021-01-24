@@ -43,15 +43,15 @@ public class BitTest {
     int a;
     a = Bit.get(6, 0);
     assertEquals(0, a);
-    // 0 (110,0 => 0)
+    // 0 (110,0 ⇒ 0)
 
     a = Bit.get(6, 1);
     assertEquals(1, a);
-    // 1 (110,1 => 1)
+    // 1 (110,1 ⇒ 1)
 
     a = Bit.get(6, 2);
     assertEquals(1, a);
-    // 1 (110,2 => 1)
+    // 1 (110,2 ⇒ 1)
   }
 
   @Test
@@ -60,15 +60,15 @@ public class BitTest {
     int a;
     a = Bit.get(6L, 0);
     assertEquals(0, a);
-    // 0 (110,0 => 0)
+    // 0 (110,0 ⇒ 0)
 
     a = Bit.get(6L, 1);
     assertEquals(1, a);
-    // 1 (110,1 => 1)
+    // 1 (110,1 ⇒ 1)
 
     a = Bit.get(6L, 2);
     assertEquals(1, a);
-    // 1 (110,2 => 1)
+    // 1 (110,2 ⇒ 1)
   }
 
 
@@ -79,15 +79,15 @@ public class BitTest {
     int a;
     a = Bit.getAs(6, 4);
     assertEquals(4, a);
-    // 4 (110,100 => 100)
+    // 4 (110,100 ⇒ 100)
 
     a = Bit.getAs(6, 7);
     assertEquals(6, a);
-    // 6 (110,111 => 110)
+    // 6 (110,111 ⇒ 110)
 
     a = Bit.getAs(6, 5);
     assertEquals(4, a);
-    // 4 (110,101 => 100)
+    // 4 (110,101 ⇒ 100)
   }
 
   @Test
@@ -96,15 +96,15 @@ public class BitTest {
     long a;
     a = Bit.getAs(6L, 4L);
     assertEquals(4L, a);
-    // 4 (110,100 => 100)
+    // 4 (110,100 ⇒ 100)
 
     a = Bit.getAs(6L, 7L);
     assertEquals(6L, a);
-    // 6 (110,111 => 110)
+    // 6 (110,111 ⇒ 110)
 
     a = Bit.getAs(6L, 5L);
     assertEquals(4L, a);
-    // 4 (110,101 => 100)
+    // 4 (110,101 ⇒ 100)
   }
 
 
@@ -115,15 +115,15 @@ public class BitTest {
     int a;
     a = Bit.set(6, 0, 1);
     assertEquals(7, a);
-    // 7 (110,0,1 => 111)
+    // 7 (110,0,1 ⇒ 111)
 
     a = Bit.set(6, 2, 1);
     assertEquals(6, a);
-    // 6 (110,2,1 => 110)
+    // 6 (110,2,1 ⇒ 110)
 
     a = Bit.set(6, 2, 0);
     assertEquals(2, a);
-    // 2 (110,2,0 => 010)
+    // 2 (110,2,0 ⇒ 010)
   }
 
   @Test
@@ -132,15 +132,15 @@ public class BitTest {
     long a;
     a = Bit.set(6L, 0, 1);
     assertEquals(7L, a);
-    // 7 (110,0,1 => 111)
+    // 7 (110,0,1 ⇒ 111)
 
     a = Bit.set(6L, 2, 1);
     assertEquals(6L, a);
-    // 6 (110,2,1 => 110)
+    // 6 (110,2,1 ⇒ 110)
 
     a = Bit.set(6L, 2, 0);
     assertEquals(2L, a);
-    // 2 (110,2,0 => 010)
+    // 2 (110,2,0 ⇒ 010)
   }
 
 
@@ -151,15 +151,15 @@ public class BitTest {
     int a;
     a = Bit.setAs(8, 2, 1);
     assertEquals(10, a);
-    // 10 (0x8 set 0x2 => 0xA)
+    // 10 (0x8 set 0x2 ⇒ 0xA)
 
     a = Bit.setAs(15, 3, 0);
     assertEquals(12, a);
-    // 12 (0xF clear 0x3 => 0xC)
+    // 12 (0xF clear 0x3 ⇒ 0xC)
 
     a = Bit.setAs(0x1234, 0x430, 1);
     assertEquals(5684, a);
-    // 5684 (0x1234 set 0x430 => 0x1634)
+    // 5684 (0x1234 set 0x430 ⇒ 0x1634)
   }
 
   @Test
@@ -168,15 +168,15 @@ public class BitTest {
     long a;
     a = Bit.setAs(8L, 2L, 1);
     assertEquals(10L, a);
-    // 10 (0x8 set 0x2 => 0xA)
+    // 10 (0x8 set 0x2 ⇒ 0xA)
 
     a = Bit.setAs(15L, 3L, 0);
     assertEquals(12L, a);
-    // 12 (0xF clear 0x3 => 0xC)
+    // 12 (0xF clear 0x3 ⇒ 0xC)
 
     a = Bit.setAs(0x1234L, 0x430L, 1);
     assertEquals(5684L, a);
-    // 5684 (0x1234 set 0x430 => 0x1634)
+    // 5684 (0x1234 set 0x430 ⇒ 0x1634)
   }
 
 
@@ -187,15 +187,15 @@ public class BitTest {
     int a;
     a = Bit.toggle(6, 0);
     assertEquals(7, a);
-    // 7 (110,0 => 111)
+    // 7 (110,0 ⇒ 111)
 
     a = Bit.toggle(6, 1);
     assertEquals(4, a);
-    // 4 (110,1 => 100)
+    // 4 (110,1 ⇒ 100)
 
     a = Bit.toggle(6, 2);
     assertEquals(2, a);
-    // 2 (110,2 => 010)
+    // 2 (110,2 ⇒ 010)
   }
 
   @Test
@@ -204,15 +204,15 @@ public class BitTest {
     long a;
     a = Bit.toggle(6L, 0);
     assertEquals(7L, a);
-    // 7 (110,0 => 111)
+    // 7 (110,0 ⇒ 111)
 
     a = Bit.toggle(6L, 1);
     assertEquals(4L, a);
-    // 4 (110,1 => 100)
+    // 4 (110,1 ⇒ 100)
 
     a = Bit.toggle(6L, 2);
     assertEquals(2L, a);
-    // 2 (110,2 => 010)
+    // 2 (110,2 ⇒ 010)
   }
 
 
@@ -223,15 +223,15 @@ public class BitTest {
     int a;
     a = Bit.toggleAs(6, 1);
     assertEquals(7, a);
-    // 7 (110,001 => 111)
+    // 7 (110,001 ⇒ 111)
 
     a = Bit.toggleAs(6, 7);
     assertEquals(1, a);
-    // 1 (110,111 => 001)
+    // 1 (110,111 ⇒ 001)
 
     a = Bit.toggleAs(6, 3);
     assertEquals(5, a);
-    // 5 (110,011 => 101)
+    // 5 (110,011 ⇒ 101)
   }
 
   @Test
@@ -240,15 +240,15 @@ public class BitTest {
     long a;
     a = Bit.toggleAs(6L, 1L);
     assertEquals(7L, a);
-    // 7 (110,001 => 111)
+    // 7 (110,001 ⇒ 111)
 
     a = Bit.toggleAs(6L, 7L);
     assertEquals(1L, a);
-    // 1 (110,111 => 001)
+    // 1 (110,111 ⇒ 001)
 
     a = Bit.toggleAs(6L, 3L);
     assertEquals(5L, a);
-    // 5 (110,011 => 101)
+    // 5 (110,011 ⇒ 101)
   }
 
 
@@ -259,15 +259,15 @@ public class BitTest {
     int a;
     a = Bit.swap(6, 1, 0, 1);
     assertEquals(5, a);
-    // 5 (110 => 101)
+    // 5 (110 ⇒ 101)
 
     a = Bit.swap(0x1234, 8, 4, 4);
     assertEquals(4900, a);
-    // 4900 (0x1234 => 0x1324)
+    // 4900 (0x1234 ⇒ 0x1324)
 
     a = Bit.swap(0x4AAB, 8, 0, 8);
     assertEquals(43850, a);
-    // 43850 (0x4AAB => 0xAB4A)
+    // 43850 (0x4AAB ⇒ 0xAB4A)
   }
 
   @Test
@@ -276,15 +276,15 @@ public class BitTest {
     long a;
     a = Bit.swap(6L, 1, 0, 1);
     assertEquals(5L, a);
-    // 5 (110 => 101)
+    // 5 (110 ⇒ 101)
 
     a = Bit.swap(0x1234L, 8, 4, 4);
     assertEquals(4900L, a);
-    // 4900 (0x1234 => 0x1324)
+    // 4900 (0x1234 ⇒ 0x1324)
 
     a = Bit.swap(0x4AABL, 8, 0, 8);
     assertEquals(43850L, a);
-    // 43850 (0x4AAB => 0xAB4A)
+    // 43850 (0x4AAB ⇒ 0xAB4A)
   }
 
 
@@ -297,15 +297,15 @@ public class BitTest {
     int a;
     a = Bit.count(7);
     assertEquals(3, a);
-    // 3 (111 => 3)
+    // 3 (111 ⇒ 3)
 
     a = Bit.count(12);
     assertEquals(2, a);
-    // 2 (1100 => 2)
+    // 2 (1100 ⇒ 2)
 
     a = Bit.count(63);
     assertEquals(6, a);
-    // 6 (111111 => 6)
+    // 6 (111111 ⇒ 6)
   }
 
   @Test
@@ -314,15 +314,15 @@ public class BitTest {
     int a;
     a = Bit.count(7L);
     assertEquals(3, a);
-    // 3 (111 => 3)
+    // 3 (111 ⇒ 3)
 
     a = Bit.count(12L);
     assertEquals(2, a);
-    // 2 (1100 => 2)
+    // 2 (1100 ⇒ 2)
 
     a = Bit.count(63L);
     assertEquals(6, a);
-    // 6 (111111 => 6)
+    // 6 (111111 ⇒ 6)
   }
 
 
@@ -333,11 +333,11 @@ public class BitTest {
     int a;
     a = Bit.parity(7);
     assertEquals(1, a);
-    // 1 (1,1,1 => 1)
+    // 1 (1,1,1 ⇒ 1)
 
     a = Bit.parity(5);
     assertEquals(0, a);
-    // 0 (1,0,1 => 0)
+    // 0 (1,0,1 ⇒ 0)
   }
 
   @Test
@@ -346,11 +346,11 @@ public class BitTest {
     int a;
     a = Bit.parity(7L);
     assertEquals(1, a);
-    // 1 (1,1,1 => 1)
+    // 1 (1,1,1 ⇒ 1)
 
     a = Bit.parity(5L);
     assertEquals(0, a);
-    // 0 (1,0,1 => 0)
+    // 0 (1,0,1 ⇒ 0)
   }
 
   @Test
@@ -359,11 +359,11 @@ public class BitTest {
     int a;
     a = Bit.parity(8, 2);
     assertEquals(2, a);
-    // 2 (10,00 => 10)
+    // 2 (10,00 ⇒ 10)
 
     a = Bit.parity(63, 4);
     assertEquals(12, a);
-    // 12 (11,1111 => 1100)
+    // 12 (11,1111 ⇒ 1100)
   }
 
   @Test
@@ -372,11 +372,11 @@ public class BitTest {
     int a;
     a = Bit.parity(8L, 2);
     assertEquals(2, a);
-    // 2 (10,00 => 10)
+    // 2 (10,00 ⇒ 10)
 
     a = Bit.parity(63L, 4);
     assertEquals(12, a);
-    // 12 (11,1111 => 1100)
+    // 12 (11,1111 ⇒ 1100)
   }
 
 
@@ -387,15 +387,15 @@ public class BitTest {
     int a;
     a = Bit.scan(7);
     assertEquals(0, a);
-    // 0 (111 => 0)
+    // 0 (111 ⇒ 0)
 
     a = Bit.scan(12);
     assertEquals(2, a);
-    // 2 (1100 => 2)
+    // 2 (1100 ⇒ 2)
 
     a = Bit.scan(64);
     assertEquals(6, a);
-    // 6 (1000000 => 6)
+    // 6 (1000000 ⇒ 6)
   }
 
   @Test
@@ -404,15 +404,15 @@ public class BitTest {
     int a;
     a = Bit.scan(7L);
     assertEquals(0, a);
-    // 0 (111 => 0)
+    // 0 (111 ⇒ 0)
 
     a = Bit.scan(12L);
     assertEquals(2, a);
-    // 2 (1100 => 2)
+    // 2 (1100 ⇒ 2)
 
     a = Bit.scan(64L);
     assertEquals(6, a);
-    // 6 (1000000 => 6)
+    // 6 (1000000 ⇒ 6)
   }
 
 
@@ -423,15 +423,15 @@ public class BitTest {
     int a;
     a = Bit.scanReverse(13);
     assertEquals(3, a);
-    // 3 (1101 => 3)
+    // 3 (1101 ⇒ 3)
 
     a = Bit.scanReverse(5);
     assertEquals(2, a);
-    // 2 (101 => 2)
+    // 2 (101 ⇒ 2)
 
     a = Bit.scanReverse(1);
     assertEquals(0, a);
-    // 0 (1 => 0)
+    // 0 (1 ⇒ 0)
   }
 
   @Test
@@ -440,15 +440,15 @@ public class BitTest {
     int a;
     a = Bit.scanReverse(13L);
     assertEquals(3, a);
-    // 3 (1101 => 3)
+    // 3 (1101 ⇒ 3)
 
     a = Bit.scanReverse(5L);
     assertEquals(2, a);
-    // 2 (101 => 2)
+    // 2 (101 ⇒ 2)
 
     a = Bit.scanReverse(1L);
     assertEquals(0, a);
-    // 0 (1 => 0)
+    // 0 (1 ⇒ 0)
   }
 
 
@@ -597,15 +597,15 @@ public class BitTest {
     int a;
     a = Bit.signExtend(15, 4);
     assertEquals(-1, a);
-    // -1 (1111 => -1)
+    // -1 (1111 ⇒ -1)
 
     a = Bit.signExtend(3, 3);
     assertEquals(3, a);
-    // 3  (011 => 3)
+    // 3  (011 ⇒ 3)
 
     a = Bit.signExtend(4, 3);
     assertEquals(-4, a);
-    // -4 (100 => -4)
+    // -4 (100 ⇒ -4)
   }
 
   @Test
@@ -614,14 +614,14 @@ public class BitTest {
     long a;
     a = Bit.signExtend(15L, 4);
     assertEquals(-1L, a);
-    // -1 (1111 => -1)
+    // -1 (1111 ⇒ -1)
 
     a = Bit.signExtend(3L, 3);
     assertEquals(3L, a);
-    // 3  (011 => 3)
+    // 3  (011 ⇒ 3)
 
     a = Bit.signExtend(4L, 3);
     assertEquals(-4L, a);
-    // -4 (100 => -4)
+    // -4 (100 ⇒ -4)
   }
 }
