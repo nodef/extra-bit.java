@@ -6,7 +6,14 @@ package io.github.javaf;
 /**
  * The bit is a basic unit of information in information theory, computing.
  * This package includes bit twiddling hacks by Sean Eron Anderson and many
- * others.
+ * others.<br>
+ * 📦 <a href="https://search.maven.org/artifact/io.github.javaf/extra-bit">Central</a>,
+ * 📜 <a href="https://repo1.maven.org/maven2/io/github/javaf/extra-bit/">Releases</a>,
+ * 😺 <a href="https://github.com/javaf/hello-world/packages/579834">GitHub</a>,
+ * 🐸 <a href="https://bintray.com/beta/#/bintray/jcenter/io.github.javaf:extra-bit">Bintray</a>,
+ * 🦚 <a href="https://mvnrepository.com/artifact/io.github.javaf/extra-bit">MvnRepository</a>,
+ * 📰 <a href="https://javaf.github.io/extra-bit/">Javadoc</a>,
+ * 📘 <a href="https://github.com/javaf/extra-bit/wiki">Wiki</a>.
  */
 public final class Bit {
 
@@ -27,6 +34,7 @@ public final class Bit {
   // GET*, SET*, TOGGLE*, SWAP
   /**
    * Get a bit.
+   * <a href="https://github.com/javaf/extra-boolean/wiki/get">📘</a>
    * @param x an int
    * @param i bit index
    * @return bit
@@ -37,6 +45,7 @@ public final class Bit {
 
   /**
    * Get a bit.
+   * <a href="https://github.com/javaf/extra-boolean/wiki/get">📘</a>
    * @param x a long
    * @param i bit index
    * @return bit
@@ -49,6 +58,7 @@ public final class Bit {
 
   /**
    * Get bits as per mask.
+   * <a href="https://github.com/javaf/extra-boolean/wiki/getAs">📘</a>
    * @param x an int
    * @param m bit mask
    * @return bits
@@ -59,6 +69,7 @@ public final class Bit {
 
   /**
    * Get bits as per mask.
+   * <a href="https://github.com/javaf/extra-boolean/wiki/getAs">📘</a>
    * @param x a long
    * @param m bit mask
    * @return bits
@@ -71,6 +82,7 @@ public final class Bit {
 
   /**
    * Set a bit.
+   * <a href="https://github.com/javaf/extra-boolean/wiki/set">📘</a>
    * @param x an int
    * @param i bit index
    * @param f bit value (1)
@@ -82,6 +94,7 @@ public final class Bit {
 
   /**
    * Set a bit.
+   * <a href="https://github.com/javaf/extra-boolean/wiki/set">📘</a>
    * @param x a long
    * @param i bit index
    * @param f bit value (1)
@@ -95,6 +108,7 @@ public final class Bit {
 
   /**
    * Set bits as per mask.
+   * <a href="https://github.com/javaf/extra-boolean/wiki/setAs">📘</a>
    * @param x an int
    * @param m bit mask
    * @param f bit value (1)
@@ -106,6 +120,7 @@ public final class Bit {
 
   /**
    * Set bits as per mask.
+   * <a href="https://github.com/javaf/extra-boolean/wiki/setAs">📘</a>
    * @param x a long
    * @param m bit mask
    * @param f bit value (1)
@@ -119,6 +134,7 @@ public final class Bit {
 
   /**
    * Toggle a bit.
+   * <a href="https://github.com/javaf/extra-boolean/wiki/toggle">📘</a>
    * @param x an int
    * @param i bit index
    * @return toggled int
@@ -129,6 +145,7 @@ public final class Bit {
 
   /**
    * Toggle a bit.
+   * <a href="https://github.com/javaf/extra-boolean/wiki/toggle">📘</a>
    * @param x a long
    * @param i bit index
    * @return toggled long
@@ -141,6 +158,7 @@ public final class Bit {
 
   /**
    * Toggle bits as per mask.
+   * <a href="https://github.com/javaf/extra-boolean/wiki/toggleAs">📘</a>
    * @param x an int
    * @param m bit mask
    * @return toggled int
@@ -151,6 +169,7 @@ public final class Bit {
 
   /**
    * Toggle bits as per mask.
+   * <a href="https://github.com/javaf/extra-boolean/wiki/toggleAs">📘</a>
    * @param x a long
    * @param m bit mask
    * @return toggled long
@@ -163,6 +182,7 @@ public final class Bit {
 
   /**
    * Swap bits.
+   * <a href="https://github.com/javaf/extra-boolean/wiki/swap">📘</a>
    * @param x an int
    * @param i first bit index
    * @param j second bit index
@@ -175,6 +195,7 @@ public final class Bit {
 
   /**
    * Swap bits.
+   * <a href="https://github.com/javaf/extra-boolean/wiki/swap">📘</a>
    * @param x a long
    * @param i first bit index
    * @param j second bit index
@@ -187,6 +208,7 @@ public final class Bit {
 
   /**
    * Swap bit sequences.
+   * <a href="https://github.com/javaf/extra-boolean/wiki/swap">📘</a>
    * @param x an int
    * @param i first bit index
    * @param j second bit index
@@ -200,6 +222,7 @@ public final class Bit {
 
   /**
    * Swap bit sequences.
+   * <a href="https://github.com/javaf/extra-boolean/wiki/swap">📘</a>
    * @param x a long
    * @param i first bit index
    * @param j second bit index
@@ -217,6 +240,7 @@ public final class Bit {
   // COUNT, PARITY, SCAN*
   /**
    * Count bits set.
+   * <a href="https://github.com/javaf/extra-boolean/wiki/count">📘</a>
    * @param x an int
    * @return count
    */
@@ -228,6 +252,7 @@ public final class Bit {
 
   /**
    * Count bits set.
+   * <a href="https://github.com/javaf/extra-boolean/wiki/count">📘</a>
    * @param x a long
    * @return count
    */
@@ -242,6 +267,7 @@ public final class Bit {
 
   /**
    * Get 1-bit parity.
+   * <a href="https://github.com/javaf/extra-boolean/wiki/parity">📘</a>
    * @param x an int
    * @return parity
    */
@@ -255,6 +281,7 @@ public final class Bit {
 
   /**
    * Get 1-bit parity.
+   * <a href="https://github.com/javaf/extra-boolean/wiki/parity">📘</a>
    * @param x a long
    * @return parity
    */
@@ -269,6 +296,7 @@ public final class Bit {
 
   /**
    * Get n-bit parity.
+   * <a href="https://github.com/javaf/extra-boolean/wiki/parity">📘</a>
    * @param x an int
    * @param n number of bits (1)
    * @return parity
@@ -285,6 +313,7 @@ public final class Bit {
 
   /**
    * Get n-bit parity.
+   * <a href="https://github.com/javaf/extra-boolean/wiki/parity">📘</a>
    * @param x an int
    * @param n number of bits (1)
    * @return parity
@@ -303,6 +332,7 @@ public final class Bit {
 
   /**
    * Get index of first set bit from LSB.
+   * <a href="https://github.com/javaf/extra-boolean/wiki/scan">📘</a>
    * @param x an int
    * @return bit index
    */
@@ -312,6 +342,7 @@ public final class Bit {
 
   /**
    * Get index of first set bit from LSB.
+   * <a href="https://github.com/javaf/extra-boolean/wiki/scan">📘</a>
    * @param x a long
    * @return bit index
    */
@@ -325,6 +356,7 @@ public final class Bit {
 
   /**
    * Get index of first set bit from MSB.
+   * <a href="https://github.com/javaf/extra-boolean/wiki/scanReverse">📘</a>
    * @param x an int32
    * @return bit index
    */
@@ -339,6 +371,7 @@ public final class Bit {
 
   /**
    * Get index of first set bit from LSB.
+   * <a href="https://github.com/javaf/extra-boolean/wiki/scanReverse">📘</a>
    * @param x a long
    * @return bit index
    */
@@ -354,6 +387,7 @@ public final class Bit {
   // MERGE, INTERLEAVE, ROTATE, REVERSE, SIGNEXTEND
   /**
    * Merge bits as per mask.
+   * <a href="https://github.com/javaf/extra-boolean/wiki/merge">📘</a>
    * @param x first int
    * @param y second int
    * @param m bit mask (0 ⇒ from x)
@@ -365,6 +399,7 @@ public final class Bit {
 
   /**
    * Merge bits as per mask.
+   * <a href="https://github.com/javaf/extra-boolean/wiki/merge">📘</a>
    * @param x first long
    * @param y second long
    * @param m bit mask (0 ⇒ from x)
@@ -378,6 +413,7 @@ public final class Bit {
 
   /**
    * Interleave bits of two shorts.
+   * <a href="https://github.com/javaf/extra-boolean/wiki/interleave">📘</a>
    * @param x first short
    * @param y second short
    * @return int
@@ -396,6 +432,7 @@ public final class Bit {
 
   /**
    * Interleave bits of two ints.
+   * <a href="https://github.com/javaf/extra-boolean/wiki/interleave">📘</a>
    * @param x first int
    * @param y second int
    * @return interleaved long
@@ -418,6 +455,7 @@ public final class Bit {
 
   /**
    * Rotate bits.
+   * <a href="https://github.com/javaf/extra-boolean/wiki/rotate">📘</a>
    * @param x an int
    * @param n rotate amount (+ve: left, -ve: right)
    * @return rotated int
@@ -428,6 +466,7 @@ public final class Bit {
 
   /**
    * Rotate bits.
+   * <a href="https://github.com/javaf/extra-boolean/wiki/rotate">📘</a>
    * @param x a long
    * @param n rotate amount (+ve: left, -ve: right)
    * @return rotated long
@@ -440,6 +479,7 @@ public final class Bit {
 
   /**
    * Reverse all bits.
+   * <a href="https://github.com/javaf/extra-boolean/wiki/reverse">📘</a>
    * @param x an int
    * @return reversed int
    */
@@ -453,6 +493,7 @@ public final class Bit {
 
   /**
    * Reverse all bits.
+   * <a href="https://github.com/javaf/extra-boolean/wiki/reverse">📘</a>
    * @param x a long
    * @return reversed long
    */
@@ -469,6 +510,7 @@ public final class Bit {
 
   /**
    * Sign extend variable bit-width integer.
+   * <a href="https://github.com/javaf/extra-boolean/wiki/signExtend">📘</a>
    * @param x variable bit-width int
    * @param w bit width (32)
    * @return sign-extended int
@@ -480,6 +522,7 @@ public final class Bit {
 
   /**
    * Sign extend variable bit-width integer.
+   * <a href="https://github.com/javaf/extra-boolean/wiki/signExtend">📘</a>
    * @param x variable bit-width long
    * @param w bit width (64)
    * @return sign-extended long
