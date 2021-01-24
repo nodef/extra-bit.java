@@ -9,7 +9,7 @@ package io.github.javaf;
  * others.<br>
  * 📦 <a href="https://search.maven.org/artifact/io.github.javaf/extra-bit">Central</a>,
  * 📜 <a href="https://repo1.maven.org/maven2/io/github/javaf/extra-bit/">Releases</a>,
- * 😺 <a href="https://github.com/javaf/hello-world/packages/579834">GitHub</a>,
+ * 😺 <a href="https://github.com/javaf/hello-world/packages/575247">GitHub</a>,
  * 🐸 <a href="https://bintray.com/beta/#/bintray/jcenter/io.github.javaf:extra-bit">Bintray</a>,
  * 🦚 <a href="https://mvnrepository.com/artifact/io.github.javaf/extra-bit">MvnRepository</a>,
  * 📰 <a href="https://javaf.github.io/extra-bit/">Javadoc</a>,
