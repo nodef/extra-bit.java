@@ -1,5 +1,8 @@
 package io.github.javaf;
 
+
+
+
 /**
  * The bit is a basic unit of information in information theory, computing.
  * This package includes bit twiddling hacks by Sean Eron Anderson and many
@@ -18,31 +21,8 @@ public final class Bit {
 
 
 
-  /**
-   * Count bits set.
-   * @param x an int
-   * @return count
-   */
-  public static int count(int x) {
-    x = x - ((x>>>1) & 0x55555555);
-    x = (x & 0x33333333) + ((x>>>2) & 0x33333333);
-    return ((x + (x>>>4) & 0x0F0F0F0F) * 0x01010101)>>>24;
-  }
 
-  /**
-   * Count bits set.
-   * @param x a long
-   * @return count
-   */
-  public static int count(long x) {
-    x = x - ((x>>>1) & 0x5555555555555555L);
-    x = (x & 0x3333333333333333L) + ((x>>>2) & 0x3333333333333333L);
-    x = ((x + (x>>>4) & 0x0F0F0F0F0F0F0F0FL) * 0x0101010101010101L)>>>56;
-    return (int) x;
-  }
-
-
-
+  // GET*, SET*, TOGGLE*, SWAP
   /**
    * Get a bit.
    * @param x an int
@@ -88,65 +68,172 @@ public final class Bit {
 
 
   /**
-   * Interleave bits of two shorts.
-   * @param x first short
-   * @param y second short
-   * @return int
+   * Set a bit.
+   * @param x an int
+   * @param i bit index
+   * @param f bit value (1)
+   * @return set int
    */
-  public static int interleave(int x, int y) {
-    x = (x | (x<<8)) & 0x00FF00FF;
-    x = (x | (x<<4)) & 0x0F0F0F0F;
-    x = (x | (x<<2)) & 0x33333333;
-    x = (x | (x<<1)) & 0x55555555;
-    y = (y | (y<<8)) & 0x00FF00FF;
-    y = (y | (y<<4)) & 0x0F0F0F0F;
-    y = (y | (y<<2)) & 0x33333333;
-    y = (y | (y<<1)) & 0x55555555;
-    return y | (x<<1);
+  public static int set(int x, int i, int f) {
+    return (x & ~(1<<i)) | (f<<i);
   }
 
   /**
-   * Interleave bits of two ints.
-   * @param x first int
-   * @param y second int
-   * @return interleaved long
+   * Set a bit.
+   * @param x a long
+   * @param i bit index
+   * @param f bit value (1)
+   * @return set long
    */
-  public static long interleave(long x, long y) {
-    x = (x | (x<<16)) & 0x0000FFFF0000FFFFL;
-    x = (x | (x<<8)) & 0x00FF00FF00FF00FFL;
-    x = (x | (x<<4)) & 0x0F0F0F0F0F0F0F0FL;
-    x = (x | (x<<2)) & 0x3333333333333333L;
-    x = (x | (x<<1)) & 0x5555555555555555L;
-    y = (y | (y<<16)) & 0x0000FFFF0000FFFFL;
-    y = (y | (y<<8)) & 0x00FF00FF00FF00FFL;
-    y = (y | (y<<4)) & 0x0F0F0F0F0F0F0F0FL;
-    y = (y | (y<<2)) & 0x3333333333333333L;
-    y = (y | (y<<1)) & 0x5555555555555555L;
-    return y | (x<<1);
+  public static long set(long x, int i, int f) {
+    return (x & ~(1<<i)) | ((long) f<<i);
   }
 
 
 
   /**
-   * Merge bits as per mask.
-   * @param x first int
-   * @param y second int
-   * @param m bit mask (0 ⇒ from x)
-   * @return merged int
+   * Set bits as per mask.
+   * @param x an int
+   * @param m bit mask
+   * @param f bit value (1)
+   * @return set int
    */
-  public static int merge(int x, int y, int m) {
-    return x ^ ((x^y) & m);
+  public static int setAs(int x, int m, int f) {
+    return (x & ~m) | (-f & m);
   }
 
   /**
-   * Merge bits as per mask.
-   * @param x first long
-   * @param y second long
-   * @param m bit mask (0 ⇒ from x)
-   * @return merged long
+   * Set bits as per mask.
+   * @param x a long
+   * @param m bit mask
+   * @param f bit value (1)
+   * @return set long
    */
-  public static long merge(long x, long y, long m) {
-    return x ^ ((x^y) & m);
+  public static long setAs(long x, long m, int f) {
+    return (x & ~m) | ((long) -f & m);
+  }
+
+
+
+  /**
+   * Toggle a bit.
+   * @param x an int
+   * @param i bit index
+   * @return toggled int
+   */
+  public static int toggle(int x, int i) {
+    return x ^ (1<<i);
+  }
+
+  /**
+   * Toggle a bit.
+   * @param x a long
+   * @param i bit index
+   * @return toggled long
+   */
+  public static long toggle(long x, int i) {
+    return x ^ (1<<i);
+  }
+
+
+
+  /**
+   * Toggle bits as per mask.
+   * @param x an int
+   * @param m bit mask
+   * @return toggled int
+   */
+  public static int toggleAs(int x, int m) {
+    return x ^ m;
+  }
+
+  /**
+   * Toggle bits as per mask.
+   * @param x a long
+   * @param m bit mask
+   * @return toggled long
+   */
+  public static long toggleAs(long x, long m) {
+    return x ^ m;
+  }
+
+
+
+  /**
+   * Swap bits.
+   * @param x an int
+   * @param i first bit index
+   * @param j second bit index
+   * @return swapped int
+   */
+  public static int swap(int x, int i, int j) {
+    int t = ((x>>>i)^(x>>>j)) & 1;
+    return x ^ ((t<<i)|(t<<j));
+  }
+
+  /**
+   * Swap bits.
+   * @param x a long
+   * @param i first bit index
+   * @param j second bit index
+   * @return swapped long
+   */
+  public static long swap(long x, int i, int j) {
+    long t = ((x>>>i)^(x>>>j)) & 1;
+    return x ^ ((t<<i)|(t<<j));
+  }
+
+  /**
+   * Swap bit sequences.
+   * @param x an int
+   * @param i first bit index
+   * @param j second bit index
+   * @param n bit width (1)
+   * @return swapped int
+   */
+  public static int swap(int x, int i, int j, int n) {
+    int t = ((x>>>i)^(x>>>j)) & ((1<<n)-1);
+    return x ^ ((t<<i)|(t<<j));
+  }
+
+  /**
+   * Swap bit sequences.
+   * @param x a long
+   * @param i first bit index
+   * @param j second bit index
+   * @param n bit width (1)
+   * @return swapped long
+   */
+  public static long swap(long x, int i, int j, int n) {
+    long t = ((x>>>i)^(x>>>j)) & ((1L<<n)-1L);
+    return x ^ ((t<<i)|(t<<j));
+  }
+
+
+
+
+  // COUNT, PARITY, SCAN*
+  /**
+   * Count bits set.
+   * @param x an int
+   * @return count
+   */
+  public static int count(int x) {
+    x = x - ((x>>>1) & 0x55555555);
+    x = (x & 0x33333333) + ((x>>>2) & 0x33333333);
+    return ((x + (x>>>4) & 0x0F0F0F0F) * 0x01010101)>>>24;
+  }
+
+  /**
+   * Count bits set.
+   * @param x a long
+   * @return count
+   */
+  public static int count(long x) {
+    x = x - ((x>>>1) & 0x5555555555555555L);
+    x = (x & 0x3333333333333333L) + ((x>>>2) & 0x3333333333333333L);
+    x = ((x + (x>>>4) & 0x0F0F0F0F0F0F0F0FL) * 0x0101010101010101L)>>>56;
+    return (int) x;
   }
 
 
@@ -213,57 +300,6 @@ public final class Bit {
 
 
   /**
-   * Reverse all bits.
-   * @param x an int
-   * @return reversed int
-   */
-  public static int reverse(int x) {
-    x = ((x>>>1) & 0x55555555) | ((x & 0x55555555)<<1);
-    x = ((x>>>2) & 0x33333333) | ((x & 0x33333333)<<2);
-    x = ((x>>>4) & 0x0F0F0F0F) | ((x & 0x0F0F0F0F)<<4);
-    x = ((x>>>8) & 0x00FF00FF) | ((x & 0x00FF00FF)<<8);
-    return (x>>>16) | (x<<16);
-  }
-
-  /**
-   * Reverse all bits.
-   * @param x a long
-   * @return reversed long
-   */
-  public static long reverse(long x) {
-    x = ((x>>>1) & 0x5555555555555555L) | ((x & 0x5555555555555555L)<<1);
-    x = ((x>>>2) & 0x3333333333333333L) | ((x & 0x3333333333333333L)<<2);
-    x = ((x>>>4) & 0x0F0F0F0F0F0F0F0FL) | ((x & 0x0F0F0F0F0F0F0F0FL)<<4);
-    x = ((x>>>8) & 0x00FF00FF00FF00FFL) | ((x & 0x00FF00FF00FF00FFL)<<8);
-    x = ((x>>>16) & 0x0000FFFF0000FFFFL) | ((x & 0x0000FFFF0000FFFFL)<<16);
-    return (x>>>32) | (x<<32);
-  }
-
-
-
-  /**
-   * Rotate bits.
-   * @param x an int
-   * @param n rotate amount (+ve: left, -ve: right)
-   * @return rotated int
-   */
-  public static int rotate(int x, int n) {
-    return n<0? x<<32+n | x>>>-n : x<<n | x>>32-n;
-  }
-
-  /**
-   * Rotate bits.
-   * @param x a long
-   * @param n rotate amount (+ve: left, -ve: right)
-   * @return rotated long
-   */
-  public static long rotate(long x, int n) {
-    return n<0? x<<64+n | x>>>-n : x<<n | x>>64-n;
-  }
-
-
-
-  /**
    * Get index of first set bit from LSB.
    * @param x an int
    * @return bit index
@@ -312,50 +348,119 @@ public final class Bit {
 
 
 
+
+  // MERGE, INTERLEAVE, ROTATE, REVERSE, SIGNEXTEND
   /**
-   * Set a bit.
+   * Merge bits as per mask.
+   * @param x first int
+   * @param y second int
+   * @param m bit mask (0 ⇒ from x)
+   * @return merged int
+   */
+  public static int merge(int x, int y, int m) {
+    return x ^ ((x^y) & m);
+  }
+
+  /**
+   * Merge bits as per mask.
+   * @param x first long
+   * @param y second long
+   * @param m bit mask (0 ⇒ from x)
+   * @return merged long
+   */
+  public static long merge(long x, long y, long m) {
+    return x ^ ((x^y) & m);
+  }
+
+
+
+  /**
+   * Interleave bits of two shorts.
+   * @param x first short
+   * @param y second short
+   * @return int
+   */
+  public static int interleave(int x, int y) {
+    x = (x | (x<<8)) & 0x00FF00FF;
+    x = (x | (x<<4)) & 0x0F0F0F0F;
+    x = (x | (x<<2)) & 0x33333333;
+    x = (x | (x<<1)) & 0x55555555;
+    y = (y | (y<<8)) & 0x00FF00FF;
+    y = (y | (y<<4)) & 0x0F0F0F0F;
+    y = (y | (y<<2)) & 0x33333333;
+    y = (y | (y<<1)) & 0x55555555;
+    return y | (x<<1);
+  }
+
+  /**
+   * Interleave bits of two ints.
+   * @param x first int
+   * @param y second int
+   * @return interleaved long
+   */
+  public static long interleave(long x, long y) {
+    x = (x | (x<<16)) & 0x0000FFFF0000FFFFL;
+    x = (x | (x<<8)) & 0x00FF00FF00FF00FFL;
+    x = (x | (x<<4)) & 0x0F0F0F0F0F0F0F0FL;
+    x = (x | (x<<2)) & 0x3333333333333333L;
+    x = (x | (x<<1)) & 0x5555555555555555L;
+    y = (y | (y<<16)) & 0x0000FFFF0000FFFFL;
+    y = (y | (y<<8)) & 0x00FF00FF00FF00FFL;
+    y = (y | (y<<4)) & 0x0F0F0F0F0F0F0F0FL;
+    y = (y | (y<<2)) & 0x3333333333333333L;
+    y = (y | (y<<1)) & 0x5555555555555555L;
+    return y | (x<<1);
+  }
+
+
+
+  /**
+   * Rotate bits.
    * @param x an int
-   * @param i bit index
-   * @param f bit value (1)
-   * @return set int
+   * @param n rotate amount (+ve: left, -ve: right)
+   * @return rotated int
    */
-  public static int set(int x, int i, int f) {
-    return (x & ~(1<<i)) | (f<<i);
+  public static int rotate(int x, int n) {
+    return n<0? x<<32+n | x>>>-n : x<<n | x>>32-n;
   }
 
   /**
-   * Set a bit.
+   * Rotate bits.
    * @param x a long
-   * @param i bit index
-   * @param f bit value (1)
-   * @return set long
+   * @param n rotate amount (+ve: left, -ve: right)
+   * @return rotated long
    */
-  public static long set(long x, int i, int f) {
-    return (x & ~(1<<i)) | ((long) f<<i);
+  public static long rotate(long x, int n) {
+    return n<0? x<<64+n | x>>>-n : x<<n | x>>64-n;
   }
 
 
 
   /**
-   * Set bits as per mask.
+   * Reverse all bits.
    * @param x an int
-   * @param m bit mask
-   * @param f bit value (1)
-   * @return set int
+   * @return reversed int
    */
-  public static int setAs(int x, int m, int f) {
-    return (x & ~m) | (-f & m);
+  public static int reverse(int x) {
+    x = ((x>>>1) & 0x55555555) | ((x & 0x55555555)<<1);
+    x = ((x>>>2) & 0x33333333) | ((x & 0x33333333)<<2);
+    x = ((x>>>4) & 0x0F0F0F0F) | ((x & 0x0F0F0F0F)<<4);
+    x = ((x>>>8) & 0x00FF00FF) | ((x & 0x00FF00FF)<<8);
+    return (x>>>16) | (x<<16);
   }
 
   /**
-   * Set bits as per mask.
+   * Reverse all bits.
    * @param x a long
-   * @param m bit mask
-   * @param f bit value (1)
-   * @return set long
+   * @return reversed long
    */
-  public static long setAs(long x, long m, int f) {
-    return (x & ~m) | ((long) -f & m);
+  public static long reverse(long x) {
+    x = ((x>>>1) & 0x5555555555555555L) | ((x & 0x5555555555555555L)<<1);
+    x = ((x>>>2) & 0x3333333333333333L) | ((x & 0x3333333333333333L)<<2);
+    x = ((x>>>4) & 0x0F0F0F0F0F0F0F0FL) | ((x & 0x0F0F0F0F0F0F0F0FL)<<4);
+    x = ((x>>>8) & 0x00FF00FF00FF00FFL) | ((x & 0x00FF00FF00FF00FFL)<<8);
+    x = ((x>>>16) & 0x0000FFFF0000FFFFL) | ((x & 0x0000FFFF0000FFFFL)<<16);
+    return (x>>>32) | (x<<32);
   }
 
 
@@ -380,101 +485,5 @@ public final class Bit {
   public static long signExtend(long x, int w) {
     w = 64-w;
     return (x<<w)>>w;
-  }
-
-
-
-  /**
-   * Swap bits.
-   * @param x an int
-   * @param i first bit index
-   * @param j second bit index
-   * @return swapped int
-   */
-  public static int swap(int x, int i, int j) {
-      int t = ((x>>>i)^(x>>>j)) & 1;
-      return x ^ ((t<<i)|(t<<j));
-  }
-
-  /**
-   * Swap bits.
-   * @param x a long
-   * @param i first bit index
-   * @param j second bit index
-   * @return swapped long
-   */
-  public static long swap(long x, int i, int j) {
-      long t = ((x>>>i)^(x>>>j)) & 1;
-      return x ^ ((t<<i)|(t<<j));
-  }
-
-  /**
-   * Swap bit sequences.
-   * @param x an int
-   * @param i first bit index
-   * @param j second bit index
-   * @param n bit width (1)
-   * @return swapped int
-   */
-  public static int swap(int x, int i, int j, int n) {
-      int t = ((x>>>i)^(x>>>j)) & ((1<<n)-1);
-      return x ^ ((t<<i)|(t<<j));
-  }
-
-  /**
-   * Swap bit sequences.
-   * @param x a long
-   * @param i first bit index
-   * @param j second bit index
-   * @param n bit width (1)
-   * @return swapped long
-   */
-  public static long swap(long x, int i, int j, int n) {
-      long t = ((x>>>i)^(x>>>j)) & ((1L<<n)-1L);
-      return x ^ ((t<<i)|(t<<j));
-  }
-
-
-
-  /**
-   * Toggle a bit.
-   * @param x an int
-   * @param i bit index
-   * @return toggled int
-   */
-  public static int toggle(int x, int i) {
-    return x ^ (1<<i);
-  }
-
-  /**
-   * Toggle a bit.
-   * @param x a long
-   * @param i bit index
-   * @return toggled long
-   */
-  public static long toggle(long x, int i) {
-    return x ^ (1<<i);
-  }
-
-
-
-  /**
-   * Toggle bits as per mask.
-   * @param x an int
-   * @param m bit mask
-   * @return toggled int
-   */
-  public static int toggleAs(int x, int m) {
-    return x ^ m;
-  }
-
-  /**
-   * Toggle bits as per mask.
-   * @param x a long
-   * @param m bit mask
-   * @return toggled long
-   */
-  public static long toggleAs(long x, long m) {
-    return x ^ m;
   }
 }

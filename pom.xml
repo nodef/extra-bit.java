@@ -5,9 +5,9 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>io.github.javaf</groupId>
   <artifactId>extra-bit</artifactId>
-  <version>1.0.1</version>
+  <version>1.0.2</version>
   <packaging>jar</packaging>
-  
+
   <!-- Use JDK 11 -->
   <!-- Comes with Long Term Support (LTS) -->
   <properties>
@@ -15,21 +15,21 @@
     <maven.compiler.source>11</maven.compiler.source>
     <maven.compiler.target>11</maven.compiler.target>
   </properties>
-  
+
   <!-- Provide Details -->
   <name>extra-bit</name>
   <description>
     The bit is a basic unit of information in information theory, computing.
   </description>
   <url>https://github.com/javaf/extra-bit</url>
-  
+
   <licenses>
     <license>
       <name>MIT License</name>
       <url>https://opensource.org/licenses/MIT</url>
     </license>
   </licenses>
-  
+
   <developers>
     <developer>
       <id>wolfram77</id>
@@ -38,7 +38,7 @@
       <url>https://github.com/wolfram77</url>
     </developer>
   </developers>
-  
+
   <scm>
     <url>git@github.com:javaf/extra-bit.git</url>
     <connection>scm:git:git@github.com:javaf/extra-bit.git</connection>
@@ -146,7 +146,7 @@
           <name>ossrh</name>
         </property>
       </activation>
-      
+
       <!-- Maven Central Repository -->
       <!-- See settings.xml for server (ossrh) credentials -->
       <distributionManagement>
@@ -159,7 +159,7 @@
           <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
         </repository>
       </distributionManagement>
-      
+
       <build>
         <plugins>
           <!-- Deploy to Maven Central Repository -->
@@ -178,8 +178,8 @@
         </plugins>
       </build>
     </profile>
-    
-    
+
+
     <!-- Deploy to GitHub Packages & create Release -->
     <!-- $ mvn clean deploy -Drelease -->
     <profile>
@@ -189,7 +189,7 @@
           <name>release</name>
         </property>
       </activation>
-      
+
       <!-- GitHub Release plugin source -->
       <pluginRepositories>
         <pluginRepository>
